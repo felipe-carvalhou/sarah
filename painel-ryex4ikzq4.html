@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Confirmações • 15 anos da Sarah Alves</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Acompanhe quem confirmou presença nos 15 anos da Sarah Alves — 09.01.2027." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sarah.convidaeu.com.br/painel-ryex4ikzq4.html" />
+  <meta property="og:title" content="Lista de confirmações • 15 anos da Sarah" />
+  <meta property="og:description" content="Acompanhe em tempo real quem confirmou presença 🌸" />
+  <meta property="og:image" content="https://sarah.convidaeu.com.br/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#fbe3ea" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Mrs+Saint+Delafield&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Painel no visual do convite da Sarah (rosé) */
+    :root{
+      --cream:#fff6f8; --paper:#fffdfd; --ink:#5c2a3c; --suave:rgba(92,42,60,.7); --line:#f2c6d4;
+      --rosa:#9c3a5e; --terra:#9c3a5e;
+      --sunset:linear-gradient(135deg,#d97a9a 0%,#b84d70 50%,#8f3253 100%);
+      --verde:#2f7d55; --verde-bg:#e3f4ea; --cinza:#8a6b74; --cinza-bg:#f6e8ed;
+      --serif:'Bodoni Moda','Didot',Georgia,serif; --sig:'Mrs Saint Delafield',cursive; --sans:'Montserrat',system-ui,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    [hidden]{display:none !important}
+    html{background:var(--cream)}
+    body{font-family:var(--sans);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;background:var(--cream)}
+
+    /* topo: rosa claro, igual à capa do convite */
+    .topo{position:relative;overflow:hidden;text-align:center;color:#7d2a49;padding:calc(34px + env(safe-area-inset-top)) 18px 44px;
+      background:radial-gradient(ellipse at 50% 30%,#fffafb 0%,#fde9ef 45%,#f6c9d6 100%)}
+    .kicker{font-weight:600;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#9c3a5e}
+    h1{margin-top:6px;font-family:var(--sig);font-weight:400;font-size:clamp(3rem,15vw,4.2rem);line-height:1.15;padding:0 .2em;
+      background:linear-gradient(115deg,#8f3253,#d27996 30%,#9c3a5e 55%,#c86a8a 80%,#842c4c);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .data{display:inline-block;margin-top:6px;padding:7px 16px;border-top:1px solid rgba(156,58,94,.35);border-bottom:1px solid rgba(156,58,94,.35);
+      font-family:var(--serif);font-variant-numeric:lining-nums;font-size:12px;letter-spacing:.3em}
+
+    .wrap{max-width:720px;margin:0 auto;padding:0 18px calc(40px + env(safe-area-inset-bottom))}
+
+    .totais{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-18px;position:relative}
+    .tot{padding:18px 6px 16px;border-radius:20px;background:var(--paper);border:1px solid var(--line);text-align:center;box-shadow:0 12px 28px rgba(156,58,94,.12)}
+    .tot b{display:block;font-family:var(--serif);font-weight:400;font-variant-numeric:lining-nums;font-size:2.3rem;line-height:1;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+    .tot span{display:block;margin-top:8px;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
+    .tot.destaque{background:var(--sunset);border-color:transparent;box-shadow:0 12px 28px rgba(156,58,94,.3)}
+    .tot.destaque b,.tot.destaque span{color:#fff}
+
+    .barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+    .busca{flex:1 1 220px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font:400 16px var(--sans);color:var(--ink);outline:none}
+    .busca:focus{border-color:var(--rosa)}
+    .abas{display:flex;gap:4px;background:var(--paper);padding:4px;border-radius:999px;border:1px solid var(--line)}
+    .aba{border:0;background:none;padding:9px 14px;border-radius:999px;font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--suave);cursor:pointer}
+    .aba[aria-pressed="true"]{background:var(--sunset);color:#fff}
+
+    .info{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;font-size:12px;color:var(--suave)}
+    .acoes{display:flex;gap:8px}
+    .mini{border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:8px 13px;
+      font:600 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+    .mini svg{width:14px;height:14px}
+    .mini.girando svg{animation:gira .8s linear infinite}
+    @keyframes gira{to{transform:rotate(360deg)}}
+
+    .lista{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:10px}
+    .item{padding:16px 16px 14px;border-radius:18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 6px 18px rgba(156,58,94,.06)}
+    .linha1{display:flex;align-items:center;gap:10px}
+    .nome{flex:1;font-weight:600;font-size:15px;color:var(--ink);word-break:break-word}
+    .selo{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+    .selo.sim{background:var(--verde-bg);color:var(--verde)}
+    .selo.nao{background:var(--cinza-bg);color:var(--cinza)}
+    .linha2{margin-top:6px;display:flex;gap:14px;font-size:12.5px;color:var(--suave)}
+    .linha2 b{color:var(--terra)}
+    .recado{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fde9ef;font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.5;color:var(--ink)}
+
+    .vazio,.erro,.carregando{margin-top:30px;text-align:center;font-size:14px;color:var(--suave);line-height:1.6}
+    .erro{color:#b3263f}
+
+    .login{max-width:340px;margin:44px auto 0;text-align:center}
+    .login p{font-size:14px;color:var(--suave);line-height:1.6}
+    .login form{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+    .login input{padding:14px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font:400 16px var(--sans);text-align:center;outline:none}
+    .login button{padding:16px;border-radius:999px;border:0;cursor:pointer;font:600 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;
+      background:var(--sunset);box-shadow:0 12px 26px rgba(156,58,94,.3)}
+    footer{margin-top:34px;text-align:center;font-size:11px;color:var(--suave)}
+    footer a{color:var(--ink);font-weight:600;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="topo">
+    <p class="kicker">Confirmações · 15 anos</p>
+    <h1 id="h-nome"></h1>
+    <p class="data" id="h-data"></p>
+  </header>
+  <div class="wrap">
+
+    <!-- tela de senha -->
+    <section class="login" id="telaLogin" hidden>
+      <p>Esta página é só para a família. Digite a senha que você recebeu:</p>
+      <form id="formLogin">
+        <input id="senha" type="password" autocomplete="current-password" placeholder="Senha" aria-label="Senha">
+        <button type="submit">Ver confirmações</button>
+      </form>
+      <p class="erro" id="erroLogin"></p>
+    </section>
+
+    <!-- painel -->
+    <section id="telaPainel" hidden>
+      <div class="totais">
+        <div class="tot destaque"><b id="t-pessoas">0</b><span>pessoas confirmadas</span></div>
+        <div class="tot"><b id="t-vao">0</b><span>respostas "vou"</span></div>
+        <div class="tot"><b id="t-naovao">0</b><span>respostas "não vou"</span></div>
+      </div>
+
+      <div class="barra">
+        <input class="busca" id="busca" type="search" placeholder="Buscar pelo nome" aria-label="Buscar pelo nome">
+        <div class="abas" role="group" aria-label="Filtrar">
+          <button class="aba" data-f="todos" aria-pressed="true">Todos</button>
+          <button class="aba" data-f="sim" aria-pressed="false">Vão</button>
+          <button class="aba" data-f="nao" aria-pressed="false">Não vão</button>
+        </div>
+      </div>
+
+      <div class="info">
+        <span id="atualizado">Carregando…</span>
+        <div class="acoes">
+          <button class="mini" id="btnAtualizar" type="button" aria-label="Atualizar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>Atualizar
+          </button>
+          <button class="mini" id="btnBaixar" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Excel
+          </button>
+        </div>
+      </div>
+
+      <p class="carregando" id="carregando">Carregando a lista…</p>
+      <p class="erro" id="erroPainel" hidden></p>
+      <ul class="lista" id="lista"></ul>
+      <p class="vazio" id="vazio" hidden></p>
+    </section>
+
+    <footer>Painel criado por <a href="https://convidaeu.com.br" target="_blank" rel="noopener">Convida&amp;u</a></footer>
+  </div>
+
+  <script>
+    /* =========================================================
+       DADOS DO PAINEL — edite só aqui
+       ========================================================= */
+    const CONFIG = {
+      nome: 'Sarah Alves',
+      data: '09 · 01 · 2027',
+      // o mesmo link do Apps Script usado no convite (termina em /exec)
+      planilha: 'https://script.google.com/macros/s/AKfycby1CPliHTQl8PtNCQrYKdQ4NUuAp9kZjZxPpDpWjdOL2EIZb_4LZKeo8zE8lJ4W_GN8/exec',            // cole aqui o mesmo link /exec do convite
+      chave: 'sa15-dg0xhxjce', // a mesma CHAVE_PAINEL do script — assim a família não precisa digitar senha
+      atualizarCada: 60        // segundos
+    };
+    /* ========================================================= */
+
+    const $ = (id) => document.getElementById(id);
+    const CHAVE_LOCAL = 'painel-sarah15-senha';
+    $('h-nome').textContent = CONFIG.nome;
+    $('h-data').textContent = CONFIG.data;
+
+    let senha = '', lista = [], filtro = 'todos', carregandoAgora = false;
+
+    // A senha pode vir no link (painel.html?chave=...) — depois fica lembrada neste aparelho
+    const daUrl = new URLSearchParams(location.search).get('chave');
+    try { senha = CONFIG.chave || daUrl || localStorage.getItem(CHAVE_LOCAL) || ''; } catch (e) { senha = CONFIG.chave || daUrl || ''; }
+    if (daUrl) history.replaceState(null, '', location.pathname);   // tira a senha da barra de endereço
+
+    function mostrarLogin(msg) {
+      $('telaPainel').hidden = true; $('telaLogin').hidden = false;
+      $('erroLogin').textContent = msg || '';
+    }
+    $('formLogin').addEventListener('submit', (e) => {
+      e.preventDefault();
+      senha = $('senha').value.trim();
+      if (senha) carregar(true);
+    });
+
+    async function carregar(primeira) {
+      if (carregandoAgora) return; carregandoAgora = true;
+      $('btnAtualizar').classList.add('girando');
+      try {
+        const resp = await fetch(CONFIG.planilha + '?chave=' + encodeURIComponent(senha) + '&t=' + Date.now());
+        const json = await resp.json();
+        if (!json.ok) {
+          try { localStorage.removeItem(CHAVE_LOCAL); } catch (e) {}
+          mostrarLogin(json.erro === 'chave' ? 'Senha incorreta. Confira e tente de novo.' : 'Não foi possível abrir a lista.');
+          return;
+        }
+        try { localStorage.setItem(CHAVE_LOCAL, senha); } catch (e) {}
+        lista = (json.lista || []).sort((a, b) => String(b.data).localeCompare(String(a.data)));
+        $('telaLogin').hidden = true; $('telaPainel').hidden = false;
+        $('erroPainel').hidden = true; $('carregando').hidden = true;
+        const agora = new Date();
+        $('atualizado').textContent = `Atualizado às ${String(agora.getHours()).padStart(2, '0')}:${String(agora.getMinutes()).padStart(2, '0')}`;
+        desenhar();
+      } catch (e) {
+        if (primeira && !lista.length) mostrarLogin('Não conseguimos conectar. Confira sua internet e tente de novo.');
+        else { $('erroPainel').hidden = false; $('erroPainel').textContent = 'Sem conexão agora — mostrando a última lista carregada.'; }
+      } finally {
+        carregandoAgora = false; $('btnAtualizar').classList.remove('girando');
+      }
+    }
+
+    const norm = (t) => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    function fmtData(iso) {
+      const d = new Date(iso); if (isNaN(d)) return '';
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }) + ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+    function desenhar() {
+      const vao = lista.filter((x) => x.vai), nao = lista.filter((x) => !x.vai);
+      $('t-pessoas').textContent = vao.reduce((s, x) => s + (x.pessoas || 0), 0);
+      $('t-vao').textContent = vao.length;
+      $('t-naovao').textContent = nao.length;
+
+      const q = norm($('busca').value.trim());
+      const vis = lista.filter((x) => (filtro === 'todos' || (filtro === 'sim') === x.vai) && (!q || norm(x.nome).includes(q)));
+      const ul = $('lista'); ul.textContent = '';
+      vis.forEach((x) => {
+        const li = document.createElement('li'); li.className = 'item';
+        const l1 = document.createElement('div'); l1.className = 'linha1';
+        const nm = document.createElement('span'); nm.className = 'nome'; nm.textContent = x.nome;
+        const se = document.createElement('span'); se.className = 'selo ' + (x.vai ? 'sim' : 'nao'); se.textContent = x.vai ? 'Vai' : 'Não vai';
+        l1.append(nm, se);
+        const l2 = document.createElement('div'); l2.className = 'linha2';
+        if (x.vai) { const pe = document.createElement('span'); pe.innerHTML = '<b></b> ' + (x.pessoas > 1 ? 'pessoas' : 'pessoa'); pe.firstChild.textContent = x.pessoas; l2.append(pe); }
+        const dt = document.createElement('span'); dt.textContent = fmtData(x.data); l2.append(dt);
+        li.append(l1, l2);
+        if (x.recado) { const rc = document.createElement('p'); rc.className = 'recado'; rc.textContent = '“' + x.recado + '”'; li.append(rc); }
+        ul.append(li);
+      });
+      const vz = $('vazio');
+      if (!lista.length) { vz.hidden = false; vz.textContent = 'Ainda não chegou nenhuma confirmação. Assim que alguém responder, aparece aqui 🌸'; }
+      else if (!vis.length) { vz.hidden = false; vz.textContent = 'Ninguém encontrado com esse filtro.'; }
+      else vz.hidden = true;
+    }
+
+    document.querySelectorAll('.aba').forEach((b) => b.addEventListener('click', () => {
+      filtro = b.dataset.f;
+      document.querySelectorAll('.aba').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      desenhar();
+    }));
+    $('busca').addEventListener('input', desenhar);
+    $('btnAtualizar').addEventListener('click', () => carregar(false));
+
+    // Baixar a lista para abrir no Excel (arquivo .csv)
+    $('btnBaixar').addEventListener('click', () => {
+      const esc = (v) => '"' + String(v).replace(/"/g, '""') + '"';
+      const linhas = [['Nome', 'Resposta', 'Pessoas', 'Recado', 'Respondeu em']]
+        .concat(lista.map((x) => [x.nome, x.vai ? 'Vai' : 'Não vai', x.vai ? x.pessoas : 0, x.recado, fmtData(x.data)]));
+      const csv = '﻿' + linhas.map((l) => l.map(esc).join(';')).join('\r\n');
+      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+      const a = document.createElement('a'); a.href = url; a.download = 'confirmacoes-' + norm(CONFIG.nome).replace(/[^a-z0-9]+/g, '-') + '.csv';
+      document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 3000);
+    });
+
+    if (!CONFIG.planilha) mostrarLogin('Falta colar o link da planilha (/exec) no CONFIG deste painel.');
+    else if (senha) carregar(true); else mostrarLogin();
+    setInterval(() => { if (!document.hidden && senha && !$('telaPainel').hidden) carregar(false); }, CONFIG.atualizarCada * 1000);
+  </script>
+</body>
+</html>

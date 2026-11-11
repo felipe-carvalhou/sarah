@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sarah Alves • 15 Anos</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="09 de janeiro de 2027 · 19h · Chácara da Selma. Você está convidado para os meus 15 anos 🌸" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sarah Alves • 15 Anos" />
+  <meta property="og:description" content="09.01.2027 • 19h • Chácara da Selma — toque para abrir o convite 🌸" />
+  <meta property="og:url" content="https://sarah.convidaeu.com.br/" />
+  <meta property="og:image" content="https://sarah.convidaeu.com.br/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="theme-color" content="#e597ae" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Mrs+Saint+Delafield&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <style>
+    :root{
+      --cream:#fff6f8; --paper:#fffdfd; --ink:#5c2a3c; --ink-soft:#8a5468;
+      --orange:#c0557a; --pink:#9c3a5e; --yellow:#c9a04a; --rattan:#b98a5a; --line:#f2c6d4;
+      --sunset:linear-gradient(100deg,#c0557a 0%,#8f3253 55%,#c49a45 100%);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    [hidden]{display:none !important}
+    html{background:var(--cream);scroll-behavior:smooth}
+    body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+    /* No computador: convite em coluna de celular, com a foto desfocada nas laterais */
+    .backdrop{display:none}
+    @media (min-width:700px){
+      body{background:#3a1626}
+      .backdrop{display:block;position:fixed;inset:-40px;z-index:0;background:linear-gradient(170deg,#ffd98a,#ff8f5e 45%,#c24c78 75%,#5e2443) center/cover;filter:blur(28px) brightness(.75) saturate(1.1)}
+      .page{position:relative;z-index:1;max-width:480px;margin:0 auto;background:var(--cream);box-shadow:0 0 60px rgba(0,0,0,.45)}
+      .hero,.finale{min-height:min(100vh,900px)}
+    }
+
+    .serif{font-family:'Bodoni Moda','Didot',Georgia,serif;font-weight:400}
+    .sig{font-family:'Mrs Saint Delafield',cursive;font-weight:400}
+    .grad{background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .caps{text-transform:uppercase;letter-spacing:.28em}
+    .small{font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+
+    #petals{position:fixed;inset:0;z-index:45;pointer-events:none;overflow:hidden}
+    .petal{position:absolute;top:-30px;border-radius:70% 0 70% 0;opacity:.8;animation:fall linear infinite}
+    @keyframes fall{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(var(--sway,40px),110vh) rotate(var(--spin,540deg))}}
+
+    /* ===== CENA PÔR DO SOL (usada na capa e no final quando não há foto) ===== */
+    .scene{position:absolute;inset:0;overflow:hidden}
+    .sky{position:absolute;inset:0;background:linear-gradient(180deg,#ffd98a 0%,#ffb76b 22%,#ff8f5e 40%,#f97a7f 52%,#ef6b8c 58%)}
+    .sun{position:absolute;left:50%;top:50%;width:min(56vw,240px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-62%);
+      background:radial-gradient(circle,#fff8e1 0%,#ffe9a8 38%,rgba(255,214,140,.55) 55%,rgba(255,190,120,0) 72%);animation:glow 6s ease-in-out infinite}
+    @keyframes glow{0%,100%{opacity:.95}50%{opacity:1;transform:translate(-50%,-63%) scale(1.03)}}
+    .sea{position:absolute;left:0;right:0;top:56%;bottom:0;background:linear-gradient(180deg,#e9688a 0%,#c24c78 30%,#8f3560 70%,#5e2443 100%)}
+    .sea::before{content:"";position:absolute;left:50%;top:0;width:min(60vw,250px);height:60%;transform:translateX(-50%);
+      background:repeating-linear-gradient(180deg,rgba(255,236,170,.75) 0 2px,transparent 2px 9px);
+      -webkit-mask:radial-gradient(ellipse 50% 100% at 50% 0,#000 20%,transparent 75%);mask:radial-gradient(ellipse 50% 100% at 50% 0,#000 20%,transparent 75%);
+      animation:shimmer 3.5s ease-in-out infinite}
+    @keyframes shimmer{0%,100%{opacity:.75;transform:translateX(-50%) scaleX(1)}50%{opacity:1;transform:translateX(-50%) scaleX(1.08)}}
+    .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 18s ease-out forwards}
+    @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
+    .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,200,220,.10) 0%,rgba(0,0,0,0) 38%,rgba(55,15,35,.45) 68%,rgba(45,10,30,.82) 100%)}
+
+    /* ===== CAPA ===== */
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+      text-align:center;color:#fff;padding:60px 20px 96px}
+    .hero > *:not(.scene):not(.cue){position:relative;z-index:2}
+    .together{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.92;margin-bottom:16px}
+    .names{font-size:clamp(2.1rem,10.5vw,3.6rem);line-height:1.05;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 18px rgba(60,10,30,.35)}
+    .names .and{display:block;font-family:'Mrs Saint Delafield',cursive;text-transform:none;letter-spacing:0;font-size:1.3em;line-height:.7;margin:.08em 0 .1em}
+    .dateblock{margin-top:26px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;width:min(340px,100%)}
+    .dateblock .side{padding:8px 0;border-top:1px solid rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.7);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase}
+    .dateblock .mid{display:flex;flex-direction:column;align-items:center;line-height:1}
+    .dateblock .mid small{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase}
+    .dateblock .mid b{font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:3.1rem;margin:4px 0}
+    .soon-date{margin-top:24px;font-size:12px;letter-spacing:.4em;text-transform:uppercase;padding:9px 18px;border-top:1px solid rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.7)}
+    /* (bloco de pais — não usado aqui) */
+    .pais{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;width:min(340px,100%)}
+    .pais small{display:block;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.85;margin-bottom:4px}
+    .pais span{display:block;margin-top:5px;font-family:'Bodoni Moda',Georgia,serif;font-size:12.5px;line-height:1.35;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+    .pais .cruz{color:#fff;width:.55em;height:.85em}
+    .cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.85}
+    .cue span{display:block;margin:8px auto 0;width:1px;height:26px;background:linear-gradient(#fff,transparent);animation:cue 2s ease-in-out infinite;transform-origin:top}
+    @keyframes cue{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+    /* ===== CONTAGEM ===== */
+    .countdown{display:flex;justify-content:center;align-items:stretch;padding:30px 12px;background:var(--paper);border-bottom:1px solid var(--line)}
+    .cd{flex:1;max-width:110px;text-align:center}
+    .cd + .cd{border-left:1px solid var(--line)}
+    .cd b{display:block;font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:clamp(1.9rem,8vw,2.6rem);line-height:1;font-variant-numeric:tabular-nums}
+    .cd small{display:block;margin-top:6px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+    .cd-done{font-family:'Mrs Saint Delafield',cursive;font-size:2.6rem}
+
+    /* ===== SEÇÕES ===== */
+    .sec{position:relative;max-width:620px;margin:0 auto;padding:70px 22px;text-align:center;overflow:hidden}
+    .sec + .sec{border-top:1px solid var(--line)}
+    .ttl{position:relative;display:inline-block;margin-bottom:30px}
+    .ttl .sig{position:absolute;left:-.35em;top:-.62em;font-size:clamp(3rem,13vw,4.4rem);line-height:1;white-space:nowrap}
+    .ttl .serif{display:block;font-size:clamp(1.9rem,8.5vw,2.7rem);letter-spacing:.14em;text-transform:uppercase;padding-top:.6em;padding-left:.8em}
+    .lead{max-width:460px;margin:0 auto;font-size:14px;line-height:1.9;color:var(--ink-soft)}
+
+    /* Programa (linha do tempo) */
+    .lamps{position:absolute;top:0;left:0;right:0;height:0;pointer-events:none}
+    .lamp{position:absolute;top:0;transform-origin:50% 0;animation:sway 6s ease-in-out infinite}
+    .lamp svg{display:block;width:100%;height:auto}
+    @keyframes sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+    .sec.prog{padding-top:150px}
+    .timeline{position:relative;max-width:360px;margin:0 auto;text-align:right}
+    .timeline::before{content:"";position:absolute;top:8px;bottom:8px;right:63px;width:1px;background:var(--ink)}
+    .ev{display:grid;grid-template-columns:1fr 26px 50px;align-items:center;column-gap:0;padding:14px 0}
+    .ev .txt{padding-right:16px}
+    .ev .hr{font-family:'Bodoni Moda',Georgia,serif;font-size:1.45rem;line-height:1}
+    .ev .rule{height:1px;width:70px;margin:8px 0 8px auto;background:var(--line)}
+    .ev .tt{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase}
+    .ev .lc{margin-top:4px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);line-height:1.5}
+    .ev .dot{width:11px;height:11px;border-radius:50%;background:var(--sunset);justify-self:center;box-shadow:0 0 0 4px var(--cream)}
+    .ev .ic{width:30px;height:30px;justify-self:center;color:var(--ink)}
+
+    /* Como chegar */
+    .places{display:grid;gap:26px;margin-top:6px}
+    @media (min-width:600px){.places.two{grid-template-columns:1fr 1fr}}
+    .place .small{color:#9c3a5e}
+    .place h3{margin-top:10px;font-size:1.6rem;line-height:1.15}
+    .place .det-local{margin-top:6px;font-family:'Bodoni Moda',Georgia,serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft)}
+    .place .addr{margin-top:6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);line-height:1.6}
+    .nav-btns{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .nav-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border:1px solid var(--ink);border-radius:999px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:background .2s,color .2s}
+    .nav-btn:hover{background:var(--ink);color:var(--cream)}
+    .nav-btn svg{width:14px;height:14px}
+
+    /* Detalhes */
+    .details{max-width:420px;margin:0 auto}
+    .det{padding:18px 0}
+    .det + .det{border-top:1px solid var(--line)}
+    .det h4{font-size:12.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+    .det p{margin-top:8px;font-size:14px;line-height:1.8;color:var(--ink-soft)}
+
+    /* Em memória: discreto, sem o degradê do pôr do sol */
+    .sec.memoria{padding-top:56px;padding-bottom:56px}
+    .mem-kicker{font-size:10.5px;letter-spacing:.36em;text-transform:uppercase;color:var(--ink-soft)}
+    .mem-kicker::before,.mem-kicker::after{content:"";display:inline-block;width:28px;height:1px;background:var(--line);vertical-align:middle;margin:0 12px}
+    .mem-lead{margin-top:14px;font-family:'Bodoni Moda',Georgia,serif;font-style:italic;font-size:1.02rem;color:var(--ink-soft)}
+    .mem-nomes{list-style:none;margin:20px auto 0;max-width:380px}
+    .mem-nomes li{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(1.12rem,5.2vw,1.3rem);line-height:1.4;color:var(--ink);padding:8px 0}
+    .mem-nomes li + li{border-top:1px solid var(--line)}
+    .cruz{display:inline-block;width:.6em;height:.9em;margin-left:.3em;vertical-align:-.05em;color:var(--ink)}
+    .mem-fim{margin-top:16px;font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+
+    /* Aviso especial */
+    .aviso{max-width:440px;margin:0 auto;padding:28px 22px 24px;border-radius:22px;background:var(--paper);border:1px solid var(--line);
+      box-shadow:0 14px 34px rgba(156,58,94,.1);position:relative}
+    .aviso::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--sunset)}
+    .aviso-ic{display:block;width:30px;height:30px;margin:0 auto 14px;color:#9c3a5e}
+    .aviso p{font-size:14px;line-height:1.85;color:var(--ink-soft)}
+    .aviso p + p{margin-top:14px}
+    .aviso strong{font-weight:600;color:var(--ink)}
+    .aviso-ass{margin-top:20px !important}
+    .aviso-ass span{display:block;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+    .aviso-ass b{display:block;margin-top:4px;font-weight:400;font-size:clamp(2rem,9vw,2.5rem);line-height:1.2}
+
+    /* Galeria */
+    .gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 22px 16px;margin:0 -22px;scrollbar-width:none}
+    .gallery::-webkit-scrollbar{display:none}
+    .gallery button{flex:0 0 80%;max-width:380px;scroll-snap-align:center;border:0;padding:0;background:none;cursor:zoom-in}
+    .gallery img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;box-shadow:0 14px 30px rgba(156,58,94,.18)}
+    .dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
+    .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:all .3s}
+    .dots i.on{width:18px;border-radius:4px;background:var(--sunset)}
+    .soon-frame{position:relative;max-width:300px;margin:0 auto;aspect-ratio:4/5;border-radius:4px;overflow:hidden;box-shadow:0 14px 30px rgba(156,58,94,.18)}
+    .soon-frame .scene .sun{width:150px}
+    .soon-frame p{position:absolute;left:0;right:0;bottom:22px;z-index:2;color:#fff;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase}
+    .soon-frame p b{display:block;font-family:'Mrs Saint Delafield',cursive;font-weight:400;font-size:2.4rem;letter-spacing:0;text-transform:none;margin-bottom:4px}
+
+    .lightbox{position:fixed;inset:0;z-index:20;background:rgba(30,12,8,.94);display:none;align-items:center;justify-content:center;padding:20px}
+    .lightbox.on{display:flex}
+    .lightbox img{max-width:100%;max-height:84vh;border-radius:4px}
+    .lb-btn{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer}
+    .lb-close{top:16px;right:16px}.lb-prev{left:10px;top:50%;transform:translateY(-50%)}.lb-next{right:10px;top:50%;transform:translateY(-50%)}
+
+    /* Madrinhas */
+    .madrinhas{max-width:380px;margin:26px auto 0}
+    .madrinhas p{font-size:clamp(2.4rem,11vw,3rem);line-height:1.25;padding:2px 0}
+    .madrinhas p + p{border-top:1px solid var(--line)}
+    .traje{margin-top:22px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+
+    /* Presentes */
+    /* Sugestões de presentes */
+    .sugestoes{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:440px;margin:24px auto 0}
+    .sug{display:flex;flex-direction:column;align-items:center;padding:20px 12px 16px;border-radius:18px;background:var(--paper);border:1px solid var(--line);
+      box-shadow:0 10px 24px rgba(156,58,94,.07)}
+    .sug-ic{display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#fde9ef;color:#9c3a5e}
+    .sug-ic svg{width:40px;height:40px}
+    .sug h3{margin-top:12px;font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:1.1rem;color:var(--ink)}
+    .sug p{margin:6px 0 14px;font-size:11.5px;line-height:1.55;color:var(--ink-soft);flex:1}
+    .sug .btn{width:100%;padding-left:8px;padding-right:8px}
+    .sug-aviso{max-width:400px;margin:0 auto;font-size:12.5px;line-height:1.6;color:var(--ink);max-height:0;overflow:hidden;opacity:0;transition:all .4s}
+    .sug-aviso.on{max-height:120px;opacity:1;margin-top:16px;padding:12px 14px;border-radius:14px;background:#fde9ef}
+    .pix-titulo{margin-top:26px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+    .pix{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .pix-nome{margin-top:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+    .pix code{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;border:1px solid var(--line);border-radius:4px;padding:9px 12px;word-break:break-all;background:var(--paper)}
+
+    /* RSVP */
+    .rsvp{padding-top:80px;padding-bottom:80px}
+    .rsvp .please{font-size:clamp(3.2rem,14vw,4.6rem);line-height:1;display:block;text-align:left;margin-left:12%;margin-bottom:-.25em;position:relative;z-index:2}
+    .rsvp .big{font-size:clamp(6.2rem,31vw,9rem);line-height:.86;letter-spacing:.04em;position:relative;z-index:1}
+    .rsvp .by{margin-top:22px;font-size:12px;letter-spacing:.32em;text-transform:uppercase}
+    .rsvp .thanks{display:block;margin-top:22px;font-size:clamp(2.8rem,12vw,3.6rem);line-height:1}
+    .actions{display:flex;flex-direction:column;gap:12px;margin-top:26px;align-items:center}
+    @media (min-width:560px){.actions{flex-direction:row;justify-content:center}}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;max-width:290px;padding:16px 22px;border-radius:999px;border:0;
+      font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .2s, box-shadow .2s}
+    .btn svg{width:18px;height:18px;flex:none}
+    .btn-main{color:#fff;background:linear-gradient(100deg,#e08aa5 0%,#c0557a 30%,#9c3a5e 75%,#b8607f 100%);box-shadow:0 12px 26px rgba(156,58,94,.3)}
+    .btn-main:hover{transform:translateY(-2px)}
+    .btn-line{color:var(--ink);background:transparent;border:1px solid var(--ink)}
+    .btn-line:hover{background:var(--ink);color:var(--cream)}
+    .btn-sm{width:auto;padding:10px 16px;font-size:10.5px}
+
+    /* Final */
+    .finale{position:relative;min-height:92vh;min-height:92svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;color:#fff;padding:60px 20px 40px;overflow:hidden}
+    .finale > *:not(.scene){position:relative;z-index:2}
+    .finale .bigdate{font-size:clamp(4.4rem,22vw,7rem);line-height:.95;letter-spacing:.02em;text-shadow:0 2px 20px rgba(60,10,30,.35)}
+    .finale .sig{font-size:clamp(2.6rem,12vw,3.6rem);margin-top:8px;text-shadow:0 2px 14px rgba(60,10,30,.4)}
+    .brand-footer{margin-top:40px;font-size:10.5px;letter-spacing:.06em;opacity:.85}
+    .brand-footer a{color:#fff;font-weight:600;text-decoration:none}
+
+    /* ===== SAVE THE DATE (mesmo link; vira convite na data escolhida) ===== */
+    .std{display:none}
+    .modo-std .std{display:flex}
+    .modo-std .page > :not(.std), .modo-std .capa{display:none !important}
+    .std{position:relative;min-height:100vh;min-height:100svh;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;color:#fff;
+      padding:calc(54px + env(safe-area-inset-top)) 20px calc(26px + env(safe-area-inset-bottom));overflow:hidden}
+    .std > *:not(.scene){position:relative;z-index:2}
+    .std .scene .sea{top:50%}
+    .std .scene::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 30%,rgba(120,40,60,.22) 48%,rgba(70,20,45,.5) 100%)}
+    .std.com-foto .scene::after{background:linear-gradient(180deg,rgba(40,15,25,.5) 0%,rgba(40,15,25,.2) 32%,rgba(60,20,40,.38) 55%,rgba(45,12,30,.75) 100%)}
+    .std .names,.std-date{text-shadow:0 2px 18px rgba(80,20,40,.55),0 1px 3px rgba(80,20,40,.35)}
+    .std-top .sig{display:block;font-size:clamp(4.2rem,21vw,6rem);line-height:1;background:linear-gradient(100deg,#b84d70,#8f3253 55%,#c9a04a);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .std-top p{margin-top:-2px;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(1.25rem,6vw,1.6rem);letter-spacing:.42em;padding-left:.42em;color:#7d2a49}
+    .std.com-foto .std-top .sig{background:none;color:#fff;text-shadow:0 2px 14px rgba(60,10,30,.45)}
+    .std.com-foto .std-top p{color:#fff;text-shadow:0 2px 10px rgba(60,10,30,.45)}
+    .std-meio{display:flex;flex-direction:column;align-items:center;width:100%}
+    .std .names{font-size:clamp(1.9rem,9.5vw,3.2rem)}
+    .std-date{margin-top:16px;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(2.6rem,12.5vw,3.6rem);line-height:1;letter-spacing:.04em;text-shadow:0 2px 18px rgba(60,10,30,.35)}
+    .std-city{margin-top:14px;display:inline-block;padding:8px 16px;border-top:1px solid rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.75);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase}
+    .std-card{margin-top:24px;width:min(340px,100%);padding:16px 14px 18px;border-radius:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.38);
+      -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+    .std-card .small{font-size:9.5px;opacity:.92}
+    .std-cd{display:flex;justify-content:center;margin-top:10px}
+    .std-cd div{flex:1;max-width:70px}
+    .std-cd div + div{border-left:1px solid rgba(255,255,255,.35)}
+    .std-cd b{display:block;font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+    .std-cd small{display:block;margin-top:5px;font-size:8px;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+    .std .btn{margin-top:16px;color:var(--ink);background:#fffdf9;box-shadow:0 10px 24px rgba(90,20,40,.25)}
+    .std-note{margin-top:12px;font-size:11.5px;line-height:1.6;opacity:.95}
+    .std-brand{margin-top:18px;font-size:10.5px;opacity:.85}
+    .std-brand a{color:#fff;font-weight:600;text-decoration:none}
+
+    /* ===== Formulário de confirmação (vai para a planilha / painel) ===== */
+    .rsvp-form{max-width:340px;margin:24px auto 0;display:flex;flex-direction:column;gap:16px}
+    .rsvp-form[hidden],.obrigado[hidden],.qtd[hidden]{display:none}
+    .guest{display:block;width:100%;padding:12px 4px;border:0;border-bottom:1px solid rgba(61,35,24,.45);background:transparent;color:var(--ink);text-align:center;
+      font:400 16px 'Montserrat',sans-serif;outline:none;border-radius:0}
+    .guest::placeholder,.recado::placeholder{color:rgba(61,35,24,.5);font-size:14px}
+    .guest:focus{border-bottom-color:#9c3a5e}
+    .guest.erro{border-bottom-color:#d13b5a;animation:treme .35s ease}
+    @keyframes treme{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+    .escolha{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .opc{padding:15px 8px;border-radius:16px;border:1px solid rgba(61,35,24,.3);background:var(--paper);color:var(--ink);font:600 12.5px 'Montserrat',sans-serif;cursor:pointer;
+      transition:background .2s,color .2s,box-shadow .2s}
+    .opc[aria-checked="true"]{background:linear-gradient(100deg,#e08aa5 0%,#c0557a 30%,#9c3a5e 100%);color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(156,58,94,.3)}
+    .qtd p{font-size:13px;color:var(--ink-soft)}
+    .stepper{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:10px}
+    .stepper button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(61,35,24,.35);background:var(--paper);font:400 24px 'Montserrat',sans-serif;color:var(--ink);cursor:pointer}
+    .stepper output{min-width:44px;font-family:'Bodoni Moda',Georgia,serif;font-size:2.2rem;color:var(--ink)}
+    .recado{width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--paper);font:400 16px 'Montserrat',sans-serif;color:var(--ink);resize:vertical;outline:none}
+    .recado:focus{border-color:#9c3a5e}
+    .erro-msg{font-size:13px;color:#b3263f}
+    .erro-msg:empty{display:none}
+    .rsvp-form .btn{margin:2px auto 0}
+    .btn[disabled]{opacity:.6;pointer-events:none}
+    .obrigado{margin:24px auto 0;max-width:340px;padding:28px 22px;border-radius:24px;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 34px rgba(156,58,94,.12)}
+    .obrigado .ok{font-size:2.2rem;line-height:1}
+    .obrigado h4{font-family:'Mrs Saint Delafield',cursive;font-weight:400;font-size:2.6rem;line-height:1.1;margin-top:8px}
+    .obrigado p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-top:6px}
+    .obrigado .btn{margin:18px auto 0}
+    .qtd .limite{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9c3a5e;margin-bottom:6px}
+    .qtd .individual{font-family:'Bodoni Moda',Georgia,serif;font-size:1.25rem;color:var(--ink)}
+    .stepper button[disabled]{opacity:.3;cursor:default}
+
+    /* Vídeo do pré-wedding */
+    .video-box{max-width:380px;margin:26px auto 0;border-radius:4px;overflow:hidden;background:#1d0f0b;box-shadow:0 14px 30px rgba(156,58,94,.18)}
+    .video-box video{display:block;width:100%;max-height:80vh;background:#1d0f0b}
+
+    /* Música */
+    .music-btn{position:fixed;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:50;
+      width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px;
+      background:rgba(255,253,249,.6);border:1px solid rgba(156,58,94,.35);
+      -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:opacity .4s, transform .2s}
+    .music-btn:active{transform:scale(.92)}
+    .music-btn i{display:block;width:2px;height:15px;border-radius:2px;background:#9c3a5e;transform-origin:bottom;animation:eq 1.1s ease-in-out infinite}
+    .music-btn i:nth-child(2){animation-delay:-.35s}.music-btn i:nth-child(3){animation-delay:-.7s}.music-btn i:nth-child(4){animation-delay:-.2s}
+    @keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+    .music-btn.off{opacity:.65}
+    .music-btn.off i{animation:none;transform:scaleY(.25)}
+    .music-btn.off::after{content:"";position:absolute;width:28px;height:1.5px;background:#9c3a5e;transform:rotate(-45deg)}
+
+    /* Nome numa linha só */
+    .names .f-nome,.c-names b{white-space:nowrap}
+    .names,.std .names{font-size:clamp(1.6rem,8.4vw,2.6rem)}
+    .c-names{font-size:clamp(1.6rem,8.4vw,2.8rem)}
+
+    .link-mudar{display:block;margin:16px auto 0;background:none;border:0;color:#9c3a5e;font:500 12.5px 'Montserrat',sans-serif;text-decoration:underline;cursor:pointer}
+
+    /* ===== só na demonstração ===== */
+    .demo-bar{position:fixed;left:50%;top:calc(10px + env(safe-area-inset-top));transform:translateX(-50%);z-index:60;display:flex;gap:3px;padding:4px;border-radius:999px;
+      background:rgba(61,35,24,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 8px 20px rgba(0,0,0,.25);white-space:nowrap}
+    .demo-bar a{padding:8px 13px;border-radius:999px;font:600 10px 'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;opacity:.75}
+    .demo-bar a.on{background:#fff;color:var(--ink);opacity:1}
+    .demo-cta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:35;width:auto;max-width:none;white-space:nowrap;padding:14px 22px}
+    .demo .std{padding-top:calc(78px + env(safe-area-inset-top));padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+    .demo .finale{padding-bottom:96px}
+
+    .js .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s ease, transform 1s ease}
+    .js .reveal.in{opacity:1;transform:none}
+    .js .hero .rise{opacity:0;transform:translateY(16px);animation:rise 1.1s ease forwards}
+    @keyframes rise{to{opacity:1;transform:none}}
+
+    /* ===== ENVELOPE (fica por cima do convite até o convidado tocar) ===== */
+    body.locked{overflow:hidden;height:100vh;height:100svh}
+    .capa{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;
+      padding:40px 16px 70px;transition:opacity .9s ease, transform 1.1s ease, visibility 0s .9s}
+    .c-bg{position:absolute;inset:0;
+      background:radial-gradient(circle at 50% 40%, rgba(255,255,255,.7) 0, rgba(255,230,238,.35) 20%, transparent 45%),
+                 linear-gradient(180deg,#f3b5c7 0%,#e597ae 30%,#d47a97 58%,#bb5a7d 82%,#9c3a5e 100%)}
+    .capa > *:not(.c-bg){position:relative;z-index:1}
+    .c-eyebrow{font-size:10.5px;letter-spacing:.4em;text-transform:uppercase;text-shadow:0 1px 8px rgba(120,30,60,.35)}
+    .c-names{margin-top:12px;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(1.9rem,9vw,3rem);line-height:1.05;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 16px rgba(120,30,60,.35)}
+    .c-names b{font-weight:400}
+    .c-names span{display:block;font-family:'Mrs Saint Delafield',cursive;text-transform:none;letter-spacing:0;font-size:1.25em;line-height:.75;margin:.06em 0 .08em}
+    /* envelope de papel: selo some → aba vira → carta sobe → convite aparece */
+    .env{--papel:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      position:relative;display:block;width:min(330px,84vw);aspect-ratio:1.45;margin:36px auto 0;border:0;background:none;cursor:pointer;perspective:1000px;
+      filter:drop-shadow(0 22px 28px rgba(140,50,85,.35));animation:cfloat 4.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+    @keyframes cfloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}
+    .env:focus-visible{outline:2px solid #fff;outline-offset:10px;border-radius:12px}
+    .env.abrindo{animation:none;transform:translateY(60px);transition:transform .8s ease}
+    .env > span{position:absolute;display:block}
+    .env-costas{inset:0;border-radius:8px;background:var(--papel),linear-gradient(160deg,#e9a8bb,#d98aa2)}
+    .env-carta{left:6%;right:6%;top:5%;height:88%;z-index:2;border-radius:6px;background:var(--papel),linear-gradient(180deg,#fffdf9,#fde9ef);
+      box-shadow:0 2px 10px rgba(0,0,0,.08);transition:transform 1.1s cubic-bezier(.2,.8,.2,1) .95s}
+    .env-carta .in{display:flex;flex-direction:column;align-items:center;padding-top:8%}
+    .env-carta small{font-weight:600;font-size:8px;letter-spacing:.4em;padding-left:.4em;text-transform:uppercase;color:#9c3a5e}
+    .env-carta b{margin-top:8px;font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.1;color:var(--ink)}
+    .env-carta b em{display:block;font-family:'Mrs Saint Delafield',cursive;font-style:normal;text-transform:none;letter-spacing:0;font-size:1.7em;line-height:.75;margin:.05em 0;
+      background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .env-carta i{margin-top:8px;font-family:'Bodoni Moda',Georgia,serif;font-style:normal;font-size:.72rem;letter-spacing:.26em;color:var(--ink-soft)}
+    .env-frente{inset:0;z-index:3;border-radius:8px;background:var(--papel),linear-gradient(170deg,#fde4eb 0%,#f6c8d5 60%,#efb6c7 100%);
+      clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+    .env-frente::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(156,58,94,.08),rgba(255,255,255,.25));clip-path:polygon(0 100%,50% 52%,100% 100%)}
+    .env-aba{left:0;right:0;top:0;height:100%;z-index:4;transform-origin:top center;filter:drop-shadow(0 4px 3px rgba(140,50,85,.22));
+      transition:transform .8s cubic-bezier(.5,0,.3,1) .35s, z-index 0s linear .75s}
+    .env-aba i{position:absolute;inset:0;border-radius:8px 8px 0 0;background:var(--papel),linear-gradient(180deg,#fde8ee,#f1b9ca);clip-path:polygon(0 0,100% 0,50% 58%)}
+    .env.abrindo .env-aba{transform:rotateX(180deg);z-index:1}
+    .env.abrindo .env-carta{transform:translateY(-62%)}
+    .env-selo{left:50%;top:57%;width:72px;height:72px;z-index:6;transform:translate(-50%,-50%);border-radius:47% 53% 49% 51% / 52% 46% 54% 48%;
+      background:radial-gradient(circle at 35% 30%,#df6a91 0%,#a8305a 45%,#741b3c 100%);
+      box-shadow:0 4px 10px rgba(110,30,30,.4), inset 0 -3px 6px rgba(0,0,0,.22), inset 0 3px 5px rgba(255,255,255,.3);
+      display:flex !important;align-items:center;justify-content:center;transition:transform .45s ease, opacity .45s ease}
+    .env-selo::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+    .env-selo span{font-family:'Bodoni Moda',Georgia,serif;font-size:32px;line-height:1;white-space:nowrap;color:#f7cbd9;
+      text-shadow:0 -1px 0 rgba(120,20,40,.55),0 1px 0 rgba(255,220,190,.3)}
+    .env-selo span em{font-family:'Mrs Saint Delafield',cursive;font-style:normal;font-size:1.15em;margin:0 .04em}
+    .env.abrindo .env-selo{transform:translate(-50%,-50%) scale(1.3);opacity:0}
+
+    .c-eyebrow,.c-names,.c-hint{transition:opacity .6s ease .25s}
+    .capa.abrindo .c-eyebrow,.capa.abrindo .c-names,.capa.abrindo .c-hint{opacity:0}
+    .c-hint{margin-top:30px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-shadow:0 1px 8px rgba(120,30,60,.35)}
+    .c-hint i{display:block;font-style:normal;font-size:16px;letter-spacing:0;margin-top:8px;animation:ctap 1.6s ease-in-out infinite}
+    @keyframes ctap{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    .c-brand{position:absolute !important;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));font-size:10.5px;text-shadow:0 1px 6px rgba(120,30,60,.35)}
+    .c-brand a{color:#fff;font-weight:600;text-decoration:none}
+    /* ao tocar: envelope sobe, selo "rompe" e a capa se desfaz revelando o convite */
+    .opened .capa{opacity:0;visibility:hidden;transform:scale(1.04)}
+    /* a abertura do convite (nomes subindo, zoom da foto) só começa depois que o envelope abre */
+    .js body:not(.opened) .hero .rise, .js body:not(.opened) .photo{animation-play-state:paused}
+    @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition-duration:.01ms !important}.js .reveal,.js .hero .rise{opacity:1;transform:none}}
+  </style>
+</head>
+<body class="locked">
+  <!-- ===== DESENHOS (flores, luminária de palha, ícones) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gRosa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9fb8"/><stop offset="1" stop-color="#d6336c"/></linearGradient>
+      <linearGradient id="gLaranja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc078"/><stop offset="1" stop-color="#c0557a"/></linearGradient>
+      <linearGradient id="gAmarelo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffec99"/><stop offset="1" stop-color="#c9a04a"/></linearGradient>
+      <linearGradient id="gMagenta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f783ac"/><stop offset="1" stop-color="#a61e4d"/></linearGradient>
+      <radialGradient id="gLuz"><stop offset="0" stop-color="#fffbe6"/><stop offset=".35" stop-color="#ffe8a3" stop-opacity=".9"/><stop offset="1" stop-color="#ffd8a8" stop-opacity="0"/></radialGradient>
+      <symbol id="hibisco" viewBox="-50 -50 100 100">
+        <path d="M0 0C-22-6-30-34-10-44C0-49 12-47 18-40C28-26 14-8 0 0Z"/>
+        <path transform="rotate(72)" d="M0 0C-22-6-30-34-10-44C0-49 12-47 18-40C28-26 14-8 0 0Z"/>
+        <path transform="rotate(144)" d="M0 0C-22-6-30-34-10-44C0-49 12-47 18-40C28-26 14-8 0 0Z"/>
+        <path transform="rotate(216)" d="M0 0C-22-6-30-34-10-44C0-49 12-47 18-40C28-26 14-8 0 0Z"/>
+        <path transform="rotate(288)" d="M0 0C-22-6-30-34-10-44C0-49 12-47 18-40C28-26 14-8 0 0Z"/>
+        <circle r="13" fill="#7a1035" opacity=".25"/>
+        <path d="M0 0L15-27" stroke="#9c1c45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="15" cy="-28" r="3.6" fill="#ffd43b"/><circle cx="11" cy="-30" r="2.4" fill="#ffd43b"/><circle cx="18" cy="-24" r="2.4" fill="#ffd43b"/>
+      </symbol>
+      <symbol id="lirio" viewBox="-50 -50 100 100">
+        <path d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <path transform="rotate(60)" d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <path transform="rotate(120)" d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <path transform="rotate(180)" d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <path transform="rotate(240)" d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <path transform="rotate(300)" d="M0 0C-10-12-10-34 0-49C10-34 10-12 0 0Z"/>
+        <g fill="#a33a06" opacity=".35"><circle cx="-2" cy="-16" r="1.6"/><circle cx="2" cy="-23" r="1.4"/><circle cx="15" cy="-6" r="1.5"/><circle cx="-14" cy="9" r="1.5"/><circle cx="4" cy="16" r="1.4"/></g>
+        <g stroke="#8a3a12" stroke-width="1.6" stroke-linecap="round"><path d="M0 0L-7-20"/><path d="M0 0L7-19"/><path d="M0 0L0-22"/></g>
+        <g fill="#7a2e0e"><ellipse cx="-7" cy="-21" rx="2" ry="3.4"/><ellipse cx="7" cy="-20" rx="2" ry="3.4"/><ellipse cx="0" cy="-23" rx="2" ry="3.4"/></g>
+      </symbol>
+      <symbol id="florzinha" viewBox="-20 -20 40 40">
+        <circle cx="0" cy="-9" r="7.5"/><circle cx="8.6" cy="-2.8" r="7.5"/><circle cx="5.3" cy="7.3" r="7.5"/><circle cx="-5.3" cy="7.3" r="7.5"/><circle cx="-8.6" cy="-2.8" r="7.5"/>
+        <circle r="5" fill="#c0557a"/>
+      </symbol>
+      <symbol id="folha" viewBox="0 -20 100 40">
+        <path d="M0 0C25-18 65-20 100 0C65 20 25 18 0 0Z"/>
+        <path d="M4 0L96 0" stroke="rgba(0,0,0,.18)" stroke-width="1.4"/>
+      </symbol>
+      <symbol id="buque" viewBox="0 0 300 300">
+        <g transform="translate(150 150)">
+          <g transform="rotate(-165)"><use href="#folha" y="-30" width="150" height="60" fill="#2f7a46"/></g>
+          <g transform="rotate(-118)"><use href="#folha" y="-28" width="135" height="56" fill="#a61e4d"/></g>
+          <g transform="rotate(-52)"><use href="#folha" y="-30" width="150" height="60" fill="#3d8b52"/></g>
+          <g transform="rotate(12)"><use href="#folha" y="-30" width="145" height="58" fill="#2f7a46"/></g>
+          <g transform="rotate(68)"><use href="#folha" y="-26" width="125" height="52" fill="#a61e4d"/></g>
+          <g transform="rotate(138)"><use href="#folha" y="-30" width="140" height="58" fill="#3d8b52"/></g>
+        </g>
+        <use href="#lirio" x="40" y="48" width="104" height="104" fill="url(#gLaranja)"/>
+        <use href="#lirio" x="168" y="78" width="96" height="96" fill="url(#gAmarelo)"/>
+        <use href="#hibisco" x="84" y="84" width="132" height="132" fill="url(#gRosa)"/>
+        <use href="#hibisco" x="166" y="160" width="86" height="86" fill="url(#gLaranja)"/>
+        <use href="#florzinha" x="92" y="192" width="46" height="46" fill="#ffd43b"/>
+        <use href="#florzinha" x="148" y="42" width="40" height="40" fill="url(#gMagenta)"/>
+        <use href="#florzinha" x="226" y="150" width="38" height="38" fill="#ffd43b"/>
+        <use href="#florzinha" x="56" y="140" width="34" height="34" fill="#ffa94d"/>
+      </symbol>
+      <symbol id="luminaria" viewBox="0 0 100 150">
+        <path d="M50 0V36" stroke="#7a4a2a" stroke-width="1.6"/>
+        <circle cx="50" cy="104" r="48" fill="url(#gLuz)" opacity=".7"/>
+        <path d="M14 112C14 64 34 38 50 36C66 38 86 64 86 112Z" fill="rgba(201,139,85,.22)" stroke="#b97a45" stroke-width="2.2"/>
+        <g fill="none" stroke="#b97a45" stroke-width="1.2" opacity=".9">
+          <path d="M50 36C40 50 26 80 22 112"/><path d="M50 36C44 54 36 84 34 112"/><path d="M50 36C48 56 46 86 46 112"/>
+          <path d="M50 36C52 56 54 86 54 112"/><path d="M50 36C56 54 64 84 66 112"/><path d="M50 36C60 50 74 80 78 112"/>
+          <path d="M27 64Q50 72 73 64"/><path d="M20 84Q50 93 80 84"/><path d="M16 101Q50 110 84 101"/>
+        </g>
+        <ellipse cx="50" cy="112" rx="36" ry="5" fill="none" stroke="#b97a45" stroke-width="2.2"/>
+        <circle cx="50" cy="104" r="8" fill="#fff4cc"/>
+      </symbol>
+      <!-- ícones da programação -->
+      <symbol id="i-aliancas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14.5" r="5.5"/><circle cx="15" cy="14.5" r="5.5"/><path d="M13.6 5.6l1.4-2 1.4 2-1.4 1.4z"/></symbol>
+      <symbol id="i-taca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4h9l-4.5 6z"/><path d="M9 10v9M6 19h6"/><path d="M12.5 5.5l5-3"/><circle cx="18.5" cy="6.5" r="1.6"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7l1.5-2.5h4L15.5 7"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+      <symbol id="i-jantar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6M5 3v5a2 2 0 0 0 4 0V3M7 10v11"/><path d="M17 21V3c-2 1.5-3 4-3 7v3h3"/></symbol>
+      <symbol id="i-festa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
+      <symbol id="i-bolo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="16" height="8" rx="1.5"/><path d="M6.5 12V8.5h11V12M12 8.5V6"/><path d="M12 3.5c.8.8.8 1.6 0 2.2-.8-.6-.8-1.4 0-2.2z"/><path d="M4 15.5c2 1.3 4 1.3 6 0s4-1.3 6 0 3 1.3 4 0"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-mesa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h24M4 14l1-2.5h22l1 2.5M8 14v12M24 14v12M8 21h16"/><path d="M14.5 11.5V8.5c0-1 .7-1.8 1.5-1.8s1.5.8 1.5 1.8v3M16 6.7c-.6-1.3-.3-2.5.8-3.2"/></symbol>
+      <symbol id="i-sofa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4"/><path d="M4 17.5a2.5 2.5 0 0 1 5 0V20h14v-2.5a2.5 2.5 0 0 1 5 0V24H4z"/><path d="M9 20v-2.5h14V20M7 24v2.5M25 24v2.5"/></symbol>
+      <symbol id="i-microondas" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="26" height="18" rx="2"/><rect x="6.5" y="10.5" width="14" height="11" rx="1"/><path d="M24.5 11h1.5M24.5 14.5h1.5M24.5 18h1.5M7 27v-2M25 27v-2"/></symbol>
+      <symbol id="i-airfryer" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h12a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/><path d="M6 16h20"/><circle cx="16" cy="10" r="2.4"/><path d="M12.5 20.5h7a1.5 1.5 0 0 1 0 3h-7a1.5 1.5 0 0 1 0-3z"/></symbol>
+      <symbol id="i-cruz" viewBox="0 0 12 18"><path d="M5.2 0h1.6v4.6H11v1.6H6.8V18H5.2V6.2H1V4.6h4.2z" fill="currentColor"/></symbol>
+      <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></symbol>
+    </defs>
+  </svg>
+
+  <div id="petals"></div>
+  <button class="music-btn" id="btnMusica" type="button" aria-label="Pausar música" hidden><i></i><i></i><i></i><i></i></button>
+  <audio id="audio" loop preload="none"></audio>
+
+  <!-- ===== ENVELOPE ===== -->
+  <div class="capa" id="capa">
+    <div class="c-bg"></div>
+    <p class="c-eyebrow">Você recebeu um convite</p>
+    <p class="c-names"><b class="f-nome">Sarah Alves</b><span>15 anos</span></p>
+    <button class="env" id="env" type="button" aria-label="Abrir convite">
+      <span class="env-costas"></span>
+      <span class="env-carta"><span class="in"><small>Convite</small><b><span class="f-primeiro">Sarah</span><em>15 anos</em></b><i id="c-carta-data"></i></span></span>
+      <span class="env-frente"></span>
+      <span class="env-aba"><i></i></span>
+      <span class="env-selo"><span id="c-selo"></span></span>
+    </button>
+    <p class="c-hint">Toque no envelope<i>👆</i></p>
+    <p class="c-brand">Convite criado por <a href="https://convidaeu.com.br" target="_blank" rel="noopener">Convida&amp;u</a></p>
+  </div>
+
+  <!-- ===== CAPA ===== -->
+  <div class="backdrop" id="backdrop"></div>
+  <div class="page">
+  <!-- ===== SAVE THE DATE (aparece até a data em que o convite é liberado) ===== -->
+  <section class="std" id="std">
+    <div class="scene" id="stdScene"><div class="sky"></div><div class="sun"></div><div class="sea"></div></div>
+    <div class="std-top"><span class="sig">Save the</span><p>DATE</p></div>
+    <div class="std-meio">
+      <h1 class="names serif"><span class="f-nome">Sarah Alves</span><span class="and">15 anos</span></h1>
+      <p class="std-date" id="std-data"></p>
+      <p class="std-city" id="std-cidade"></p>
+      <div class="std-card">
+        <p class="small">O convite oficial chega aqui em</p>
+        <div class="std-cd" id="std-cd">
+          <div><b id="sd-d">--</b><small>Dias</small></div><div><b id="sd-h">--</b><small>Horas</small></div>
+          <div><b id="sd-m">--</b><small>Min</small></div><div><b id="sd-s">--</b><small>Seg</small></div>
+        </div>
+        <a class="btn" id="btnAgendaStd" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+          Salvar a data na agenda
+        </a>
+        <p class="std-note" id="std-nota"></p>
+      </div>
+      <p class="std-brand">Criado por <a href="https://convidaeu.com.br" target="_blank" rel="noopener">Convida&amp;u</a></p>
+    </div>
+  </section>
+
+  <header class="hero">
+    <div class="scene" id="heroScene">
+      <div class="sky"></div><div class="sun"></div><div class="sea"></div>
+    </div>
+    <p class="together rise" style="animation-delay:.2s" id="f-frase"></p>
+    <h1 class="names serif rise" style="animation-delay:.45s"><span class="f-nome">Sarah Alves</span><span class="and">15 anos</span></h1>
+    <div class="dateblock rise" style="animation-delay:.75s" id="f-dateblock" hidden>
+      <span class="side" id="f-semana"></span>
+      <span class="mid"><small id="f-mes"></small><b id="f-dia"></b><small id="f-ano"></small></span>
+      <span class="side" id="f-hora"></span>
+    </div>
+    <p class="soon-date rise" style="animation-delay:.75s" id="f-soon">Data em breve</p>
+    <p class="cue">Role<span></span></p>
+  </header>
+
+  <!-- CONTAGEM -->
+  <div class="countdown" id="countdown">
+    <div class="cd"><b id="cd-d">--</b><small>Dias</small></div>
+    <div class="cd"><b id="cd-h">--</b><small>Horas</small></div>
+    <div class="cd"><b id="cd-m">--</b><small>Min</small></div>
+    <div class="cd"><b id="cd-s">--</b><small>Seg</small></div>
+  </div>
+
+  <main>
+    <!-- ENSAIO -->
+    <section class="sec reveal" id="sec-fotos">
+      <h2 class="ttl"><span class="sig grad">Meu</span><span class="serif">Ensaio</span></h2>
+      <div class="gallery" id="gallery" hidden></div>
+      <div class="dots" id="dots" hidden></div>
+      <div class="soon-frame" id="soon">
+        <div class="scene"><div class="sky"></div><div class="sun"></div><div class="sea"></div></div>
+        <p><b>em breve</b>Fotos do ensaio</p>
+      </div>
+      <div class="video-box" id="videoBox" hidden>
+        <video id="video" controls playsinline preload="metadata"></video>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section class="sec prog reveal" id="sec-programa">
+      <div class="lamps" aria-hidden="true">
+        <div class="lamp" style="left:12%;width:46px;animation-delay:-1s"><svg viewBox="0 0 100 150"><use href="#luminaria"/></svg></div>
+        <div class="lamp" style="left:calc(50% - 30px);width:60px;animation-delay:-3s"><svg viewBox="0 0 100 150"><use href="#luminaria"/></svg></div>
+        <div class="lamp" style="right:12%;width:46px;animation-delay:-2s"><svg viewBox="0 0 100 150"><use href="#luminaria"/></svg></div>
+      </div>
+      <h2 class="ttl"><span class="sig grad">O</span><span class="serif">Programa</span></h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- COMO CHEGAR -->
+    <section class="sec reveal" id="sec-local">
+      <h2 class="ttl"><span class="sig grad">Como</span><span class="serif">Chegar</span></h2>
+      <div class="places" id="places"></div>
+    </section>
+
+    <!-- DETALHES -->
+    <section class="sec reveal" id="sec-detalhes" hidden>
+      <h2 class="ttl"><span class="sig grad">Os</span><span class="serif">Detalhes</span></h2>
+      <div class="details" id="details"></div>
+    </section>
+
+    <!-- CORTE (damas e cavalheiros) -->
+    <section class="sec reveal" id="sec-madrinhas">
+      <h2 class="ttl"><span class="sig grad">Minha</span><span class="serif">Corte</span></h2>
+      <p class="lead" id="f-madrinhas-txt"></p>
+      <div class="madrinhas" id="madrinhas"></div>
+      <p class="traje" id="f-traje" hidden></p>
+    </section>
+
+    <!-- PRESENTES (só aparece se preenchido) -->
+    <section class="sec reveal" id="sec-presentes" hidden>
+      <h2 class="ttl"><span class="sig grad">Lista de</span><span class="serif">Presentes</span></h2>
+      <p class="lead" id="f-presente-txt"></p>
+      <div class="sugestoes" id="f-sugestoes" hidden></div>
+      <p class="sug-aviso" id="sugAviso" aria-live="polite"></p>
+      <p class="pix-titulo" id="f-pix-titulo" hidden>Ou contribua com o valor que preferir</p>
+      <div class="pix" id="f-pix-box" hidden>
+        <code id="f-pix"></code>
+        <button class="btn btn-line btn-sm" id="btnPix" type="button">Copiar Pix</button>
+      </div>
+      <div class="actions" id="f-lista-box" hidden>
+        <a class="btn btn-line" id="f-lista" href="#" target="_blank" rel="noopener">Ver lista de presentes</a>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="sec rsvp reveal" id="sec-rsvp">
+      <span class="please sig grad">por favor</span>
+      <p class="big serif">RS<br>VP</p>
+      <p class="by" id="f-prazo">Confirme sua presença</p>
+
+      <!-- Formulário: as respostas vão para a planilha e aparecem no painel da família -->
+      <form class="rsvp-form" id="formRsvp" novalidate hidden>
+        <input class="guest" id="guest" type="text" autocomplete="name" maxlength="120" placeholder="Seu nome completo" aria-label="Seu nome completo">
+        <div class="escolha" role="radiogroup" aria-label="Você vai?">
+          <button type="button" class="opc" data-vai="sim" role="radio" aria-checked="false">Vou com certeza 🌸</button>
+          <button type="button" class="opc" data-vai="nao" role="radio" aria-checked="false">Não poderei ir</button>
+        </div>
+        <div class="qtd" id="blocoQtd" hidden>
+          <p class="limite" id="txtLimite" hidden></p>
+          <p id="txtQtd">Quantas pessoas no total, contando com você?</p>
+          <div class="stepper" id="stepper">
+            <button type="button" id="menos" aria-label="Menos uma pessoa">−</button>
+            <output id="qtd" aria-live="polite">1</output>
+            <button type="button" id="mais" aria-label="Mais uma pessoa">+</button>
+          </div>
+        </div>
+        <textarea class="recado" id="recado" maxlength="500" rows="3" placeholder="Deixe um recado para a Sarah (opcional)" aria-label="Recado (opcional)"></textarea>
+        <p class="erro-msg" id="erroRsvp" role="alert"></p>
+        <button class="btn btn-main" id="btnEnviar" type="submit">Enviar confirmação</button>
+      </form>
+      <div class="obrigado" id="obrigado" hidden>
+        <p class="ok">🌸</p>
+        <h4 class="grad" id="okTitulo"></h4>
+        <p id="okTexto"></p>
+        <a class="btn btn-main" id="btnPainelDemo" href="painel.html" hidden>Ver meu nome no painel 👀</a>
+        <a class="btn btn-line" id="btnAvisarWhats" target="_blank" rel="noopener" hidden>Avisar também no WhatsApp</a>
+        <button type="button" class="link-mudar" id="btnMudar">Mudar minha resposta</button>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-main" id="btnRsvp" href="#" target="_blank" rel="noopener" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-3.9A8.5 8.5 0 1 1 8.2 19.5z"/><path d="M9.2 8.2c.2-.4.5-.5.8-.5h.5l1 2.2-.8.9c.6 1.2 1.5 2.1 2.6 2.7l.9-.8 2.2 1v.5c0 .4-.2.7-.6.9-.6.3-1.4.4-2.2.1-2.3-.9-4-2.7-4.8-5-.2-.7-.1-1.4.4-2z" fill="currentColor" stroke="none"/></svg>
+          Confirmar no WhatsApp
+        </a>
+        <a class="btn btn-line" id="btnAgenda" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+          <span id="agendaTxt">Salvar na agenda</span>
+        </a>
+      </div>
+      <span class="thanks sig grad">obrigada</span>
+    </section>
+  </main>
+
+  <!-- FINAL -->
+  <footer class="finale">
+    <div class="scene" id="finalScene">
+      <div class="sky"></div><div class="sun"></div><div class="sea"></div>
+    </div>
+    <p class="bigdate serif" id="f-bigdate">Em<br>breve</p>
+    <p class="sig"><span class="f-nome">Sarah Alves</span></p>
+    <p class="brand-footer">Convite criado por <a href="https://convidaeu.com.br" target="_blank" rel="noopener">Convida&amp;u</a></p>
+  </footer>
+  </div>
+
+  <!-- Só na demonstração -->
+  <nav class="demo-bar" id="demoBar" hidden><a href="?std" id="dbStd">Save the date</a><a href="?convite" id="dbConv">Convite</a></nav>
+  <a class="btn btn-main demo-cta" id="demoCta" target="_blank" rel="noopener" hidden>Quero um convite assim</a>
+
+  <!-- Visualizador de fotos -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Foto ampliada">
+    <img id="lb-img" alt="">
+    <button class="lb-btn lb-close" id="lb-close" aria-label="Fechar">×</button>
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Próxima">›</button>
+  </div>
+
+  <script>
+    /* =====================================================================
+       DADOS DO CASAMENTO — edite só aqui
+       Campo vazio ('') ou lista vazia ([]) = o bloco mostra "em breve" ou some.
+       ===================================================================== */
+    const CONFIG = {
+      demo: false,              // true = demonstração (respostas ficam só no aparelho + painel de exemplo)
+      nome: 'Sarah Alves',
+      evento: 'festa de 15 anos',     // usado nas frases: "na festa de 15 anos da Sarah"
+      data: '2027-01-09',             // AAAA-MM-DD (sábado)
+      frase: 'Com muita alegria, convido você para celebrar',
+
+      // SAVE THE DATE → CONVITE (mesmo link). Vazio ('') = já abre direto como convite.
+      liberarConvite: '',
+      cidade: '',               // aparece só no save the date
+      link: 'https://sarah.convidaeu.com.br/',   // link público do convite — vai dentro do evento da agenda
+
+      // LOCAL. mapa = link do pin no Google Maps (Compartilhar → Copiar link): tem prioridade sobre o endereço.
+      // Sem endereço e sem mapa, os botões de rota não aparecem (melhor do que mandar o convidado para o lugar errado).
+      local: { nome: 'Chácara da Selma', detalhe: 'Nardino · perto da cachoeira', endereco: '', cidade: '', mapa: '', horario: '19:00' },
+
+      // Programação (linha do tempo). Com menos de 2 momentos a seção some.
+      // Ex.: [{ hora:'19:00', titulo:'Recepção', icone:'taca' }, { hora:'21:00', titulo:'Valsa', icone:'festa' }, { hora:'22:00', titulo:'Parabéns', icone:'bolo' }]
+      // Ícones: aliancas, taca, camera, jantar, festa, bolo
+      programa: [],
+
+      // Fotos do ensaio (pasta "fotos"). A 1ª vira a capa, a última o final.
+      fotos: ['fotos/foto2.jpg', 'fotos/foto1.jpg'],
+      focoCapa: '48% 40%',
+      focoFinal: '40% 45%',
+
+      video: '',                // MP4 720p, H.264, até ~25 MB. Ex.: 'video/ensaio.mp4'
+      posterVideo: '',
+
+      musica: '',               // MP3 que toca ao abrir o envelope. Ex.: 'musica.mp3'. Vazio = sem música.
+
+      detalhes: [],             // ex.: [{ titulo:'Traje', texto:'Esporte fino' }] — vazio = a seção some
+
+      corte: [],                // damas e cavalheiros, ex.: ['Ana & Pedro', 'Júlia & Lucas'] — vazio = a seção some
+      textoCorte: 'As pessoas especiais que vão estar ao meu lado nessa noite.',
+
+      presentes: {
+        texto: '', pix: '', pixNome: '', lista: '',   // tudo vazio = a seção some
+        sugestoes: []           // ícones: mesa, sofa, microondas, airfryer (só aparecem se tiver Pix)
+      },
+
+      // CONFIRMAÇÃO DE PRESENÇA
+      planilha: 'https://script.google.com/macros/s/AKfycby1CPliHTQl8PtNCQrYKdQ4NUuAp9kZjZxPpDpWjdOL2EIZb_4LZKeo8zE8lJ4W_GN8/exec',             // link do Apps Script (termina em /exec)
+      whatsapp: '',             // opcional: botão "Avisar também no WhatsApp" depois de confirmar
+      confirmarAte: '',         // ex.: '2026-12-26'
+      mensagemRsvp: 'Olá! Quero confirmar minha presença na {evento} 🌸',
+      duracaoHoras: 6,
+
+      // LIMITE DE PESSOAS POR LINK (link terminado em ?c=CÓDIGO) — só "impressões digitais" dos códigos.
+      // A planilha confere o limite de novo antes de gravar. Link sem código = 1 pessoa.
+      limites: {
+        '8680f359218a71a2': 1,
+        'fe2b8d85e1e045d0': 2,
+        'e0853f3c20299752': 3,
+        'eda45c5e2b90585c': 4,
+        '9febe1125043d1b7': 5
+      }
+    };
+    /* ===================================================================== */
+
+    const $ = (id) => document.getElementById(id);
+    const libera = CONFIG.liberarConvite ? new Date(`${CONFIG.liberarConvite}T00:00:00-03:00`) : null;
+    const forcado = /[?&]convite/.test(location.search) ? 'convite' : /[?&]std/.test(location.search) ? 'std' : '';
+    const modoStd = forcado ? forcado === 'std' : !!(libera && new Date() < libera);
+    // Código do convite (?c=...): define quantas pessoas podem confirmar por este link.
+    // Fica guardado no aparelho, então quem abrir depois pelo link "limpo" (ex.: pela agenda) não perde o limite.
+    const CHAVE_COD = 'convite-' + CONFIG.data + '-codigo';
+    const codigo = (() => {
+      const daUrl = (new URLSearchParams(location.search).get('c') || '').trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      try { if (daUrl) localStorage.setItem(CHAVE_COD, daUrl); return daUrl || localStorage.getItem(CHAVE_COD) || ''; } catch (e) { return daUrl; }
+    })();
+    const linkConvite = (CONFIG.link || (location.origin + location.pathname)) + (codigo ? '?c=' + codigo : '');
+    async function lerLimite() {
+      if (!codigo || !window.crypto || !crypto.subtle) return 1;
+      try {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('sarah15:' + codigo));
+        const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16);
+        return CONFIG.limites[hex] || 1;
+      } catch (e) { return 1; }
+    }
+    if (modoStd) { document.body.classList.add('modo-std'); document.body.classList.remove('locked'); }
+    if (CONFIG.demo) document.body.classList.add('demo');
+    const esc = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const casal = CONFIG.nome;
+    const primeiroNome = CONFIG.nome.split(' ')[0];
+    const eventoDa = `${CONFIG.evento} da ${primeiroNome}`;   // "festa de 15 anos da Sarah"
+    const semana = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+    const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const hfmt = (h) => { if (!h) return ''; const [a, b] = h.split(':'); return `${Number(a)}h${b && b !== '00' ? b : ''}`; };
+
+    document.querySelectorAll('.f-nome').forEach(e => e.textContent = CONFIG.nome);
+    document.querySelectorAll('.f-primeiro').forEach(e => e.textContent = primeiroNome);
+    document.title = `${casal} • Convite`;
+    $('f-frase').textContent = CONFIG.frase;
+
+    // Data
+    const horaPrincipal = CONFIG.local.horario || '';
+    const inicio = CONFIG.data ? new Date(`${CONFIG.data}T${horaPrincipal || '00:00'}:00-03:00`) : null;
+    if (CONFIG.data) {
+      const [a, m, d] = CONFIG.data.split('-');
+      $('f-dateblock').hidden = false; $('f-soon').remove();
+      $('f-semana').textContent = semana[new Date(`${CONFIG.data}T12:00:00-03:00`).getUTCDay()];
+      $('f-mes').textContent = meses[Number(m) - 1];
+      $('f-dia').textContent = d;
+      $('f-ano').textContent = a;
+      $('f-hora').textContent = horaPrincipal ? `às ${hfmt(horaPrincipal)}` : 'Save the date';
+      $('f-bigdate').innerHTML = `${d}·${m}<br>${a}`;
+    }
+
+    // Fotos na capa e no final
+    if (CONFIG.fotos.length) {
+      const put = (scene, src, foco) => { scene.querySelectorAll('.sky,.sun,.sea').forEach(e => e.remove());
+        scene.insertAdjacentHTML('afterbegin', `<img class="photo" src="${esc(src)}" alt="" style="object-position:${esc(foco)}"><div class="tint"></div>`); };
+      put($('heroScene'), CONFIG.fotos[0], CONFIG.focoCapa || '50% 18%');
+      put($('finalScene'), CONFIG.fotos[CONFIG.fotos.length - 1], CONFIG.focoFinal || '50% 50%');
+      $('backdrop').style.background = `url("${CONFIG.fotos[0]}") ${CONFIG.focoCapa || '50% 18%'}/cover`;
+      put($('stdScene'), CONFIG.fotos[0], CONFIG.focoCapa || '50% 18%'); $('std').classList.add('com-foto');
+    }
+
+    // Contagem
+    const pad = (n) => String(n).padStart(2, '0'); let timer;
+    function tick(){
+      const diff = inicio - new Date();
+      if (diff <= 0) { $('countdown').innerHTML = '<p class="cd-done grad">Chegou o grande dia!</p>'; clearInterval(timer); return; }
+      $('cd-d').textContent = pad(Math.floor(diff / 864e5));
+      $('cd-h').textContent = pad(Math.floor(diff % 864e5 / 36e5));
+      $('cd-m').textContent = pad(Math.floor(diff % 36e5 / 6e4));
+      $('cd-s').textContent = pad(Math.floor(diff % 6e4 / 1e3));
+    }
+    if (inicio) { timer = setInterval(tick, 1000); tick(); } else { $('countdown').remove(); }
+
+    // Save the date
+    (function(){
+      if (!CONFIG.data) return;
+      const [a, m, d] = CONFIG.data.split('-');
+      $('std-data').textContent = `${d} · ${m} · ${a}`;
+      if (CONFIG.cidade) $('std-cidade').textContent = CONFIG.cidade; else $('std-cidade').remove();
+      if (!modoStd) return;
+      const alvo = libera && libera > new Date() ? libera : null;
+      if (!alvo) { $('std-cd').remove(); document.querySelector('.std-card .small').textContent = 'Convite oficial em breve'; return; }
+      const [la, lm, ld] = CONFIG.liberarConvite.split('-');
+      $('std-nota').textContent = `Guarde este link: em ${Number(ld)} de ${meses[Number(lm) - 1].toLowerCase()} ele vira o convite completo 💌`;
+      let t2;
+      const passo = () => {
+        const diff = alvo - new Date();
+        if (diff <= 0) { clearInterval(t2); if (!forcado) location.reload(); return; }   // chegou a hora: vira o convite
+        $('sd-d').textContent = pad(Math.floor(diff / 864e5));
+        $('sd-h').textContent = pad(Math.floor(diff % 864e5 / 36e5));
+        $('sd-m').textContent = pad(Math.floor(diff % 36e5 / 6e4));
+        $('sd-s').textContent = pad(Math.floor(diff % 6e4 / 1e3));
+      };
+      t2 = setInterval(passo, 1000); passo();
+    })();
+
+    // Galeria
+    (function(){
+      if (!CONFIG.fotos.length) return;
+      $('soon').remove();
+      const g = $('gallery'), dots = $('dots');
+      g.hidden = false; dots.hidden = CONFIG.fotos.length < 2;
+      CONFIG.fotos.forEach((src, i) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', `Abrir foto ${i + 1}`);
+        b.innerHTML = `<img src="${esc(src)}" alt="Ensaio — foto ${i + 1}" loading="lazy">`;
+        b.addEventListener('click', () => abrir(i));
+        g.appendChild(b); dots.appendChild(document.createElement('i'));
+      });
+      const marcar = () => { const idx = Math.round(g.scrollLeft / (g.firstElementChild.offsetWidth + 12)); [...dots.children].forEach((d, i) => d.classList.toggle('on', i === idx)); };
+      g.addEventListener('scroll', () => requestAnimationFrame(marcar)); marcar();
+      const lb = $('lightbox'), img = $('lb-img'); let atual = 0, x0 = null;
+      function abrir(i){ atual = (i + CONFIG.fotos.length) % CONFIG.fotos.length; img.src = CONFIG.fotos[atual]; lb.classList.add('on'); }
+      const fechar = () => lb.classList.remove('on');
+      $('lb-close').onclick = fechar; $('lb-prev').onclick = () => abrir(atual - 1); $('lb-next').onclick = () => abrir(atual + 1);
+      lb.addEventListener('click', e => { if (e.target === lb) fechar(); });
+      lb.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
+      lb.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) abrir(atual + (dx < 0 ? 1 : -1)); x0 = null; });
+      document.addEventListener('keydown', e => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') fechar(); if (e.key === 'ArrowRight') abrir(atual + 1); if (e.key === 'ArrowLeft') abrir(atual - 1); });
+    })();
+
+    // Programa (linha do tempo)
+    (function(){
+      const itens = CONFIG.programa.slice();
+      // Com menos de 2 momentos a linha do tempo não faz sentido (o horário já aparece na capa e em "Como chegar")
+      if (itens.length < 2) { $('sec-programa').remove(); return; }
+      $('timeline').innerHTML = itens.map(it => `
+        <div class="ev">
+          <div class="txt">
+            ${it.hora ? `<p class="hr serif">${hfmt(it.hora)}</p><div class="rule"></div>` : ''}
+            <p class="tt">${esc(it.titulo || '')}</p>
+            ${it.local ? `<p class="lc">${esc(it.local)}</p>` : ''}
+          </div>
+          <span class="dot"></span>
+          <svg class="ic"><use href="#i-${esc(it.icone || 'aliancas')}"/></svg>
+        </div>`).join('');
+    })();
+
+    // Como chegar
+    (function(){
+      const l = CONFIG.local, box = $('places');
+      if (!l.nome && !l.endereco) { box.innerHTML = '<div class="place"><p class="small">Local</p><h3 class="serif">Em breve</h3></div>'; return; }
+      // O que os apps vão procurar: com endereço, nome + endereço; sem endereço, nome + bairro (1ª parte do detalhe)
+      const destino = (l.endereco ? [l.nome, l.endereco, l.cidade] : [l.nome, (l.detalhe || '').split(' · ')[0], l.cidade])
+        .filter(Boolean).join(', ');
+      // Maps: o pin exato (l.mapa) tem prioridade; Waze: sempre pela busca
+      const linkMaps = l.mapa || 'https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=' + encodeURIComponent(destino);
+      const botoes = `
+              <a class="nav-btn" target="_blank" rel="noopener" href="${esc(linkMaps)}"><svg><use href="#i-pin"/></svg>Google Maps</a>
+              <a class="nav-btn" target="_blank" rel="noopener" href="https://waze.com/ul?navigate=yes&q=${encodeURIComponent(destino)}"><svg><use href="#i-seta"/></svg>Waze</a>`;
+      box.innerHTML = `
+          <div class="place">
+            <p class="small">A festa${l.horario ? ' · ' + hfmt(l.horario) : ''}</p>
+            <h3 class="serif">${esc(l.nome || l.endereco)}</h3>
+            ${l.detalhe ? `<p class="det-local">${esc(l.detalhe)}</p>` : ''}
+            ${l.nome && l.endereco ? `<p class="addr">${esc(l.endereco)}</p>` : ''}
+            ${l.cidade ? `<p class="addr">${esc(l.cidade)}</p>` : ''}
+            ${botoes ? `<div class="nav-btns">${botoes}</div>` : ''}
+          </div>`;
+    })();
+
+    // Detalhes
+    if (CONFIG.detalhes.length) {
+      $('sec-detalhes').hidden = false;
+      $('details').innerHTML = CONFIG.detalhes.map(d => `<div class="det"><h4>${esc(d.titulo)}</h4><p>${esc(d.texto)}</p></div>`).join('');
+    }
+
+    // Corte (damas e cavalheiros) — lista vazia = a seção some
+    if (CONFIG.corte.length) {
+      $('f-madrinhas-txt').textContent = CONFIG.textoCorte;
+      $('madrinhas').innerHTML = CONFIG.corte.map(n => `<p class="sig">${esc(n)}</p>`).join('');
+    } else $('sec-madrinhas').remove();
+
+    // Presentes
+    (function(){
+      const p = CONFIG.presentes;
+      if (!p.texto && !p.pix && !p.lista) return;
+      $('sec-presentes').hidden = false;
+      $('f-presente-txt').textContent = p.texto || 'Sua presença é o nosso maior presente. Se quiser nos presentear, deixamos as opções abaixo.';
+      if (p.pix) {
+        $('f-pix-box').hidden = false; $('f-pix').textContent = p.pix;
+        if (p.pixNome) $('f-pix-box').insertAdjacentHTML('afterend', `<p class="pix-nome">Titular: ${esc(p.pixNome)}</p>`);
+        const chavePix = /^[\d.\-\s()]+$/.test(p.pix) ? p.pix.replace(/\D/g, '') : p.pix;   // CPF: copia só os números
+        $('btnPix').onclick = async () => {
+          try { await navigator.clipboard.writeText(chavePix); $('btnPix').textContent = 'Copiado!'; }
+          catch { $('btnPix').textContent = 'Segure no código para copiar'; }
+          setTimeout(() => $('btnPix').textContent = 'Copiar Pix', 2500);
+        };
+      }
+      if (p.lista) { $('f-lista-box').hidden = false; $('f-lista').href = p.lista; }
+
+      // Sugestões: cada cartão copia a chave Pix e lembra de escrever o presente na mensagem
+      if (p.pix && p.sugestoes && p.sugestoes.length) {
+        const box = $('f-sugestoes'); box.hidden = false; $('f-pix-titulo').hidden = false;
+        const chave = /^[\d.\-\s()]+$/.test(p.pix) ? p.pix.replace(/\D/g, '') : p.pix;
+        let tAviso;
+        p.sugestoes.forEach((g) => {
+          const card = document.createElement('div'); card.className = 'sug';
+          card.innerHTML = `<span class="sug-ic"><svg aria-hidden="true"><use href="#i-${esc(g.icone)}"/></svg></span>
+            <h3>${esc(g.nome)}</h3><p>${esc(g.texto)}</p><button class="btn btn-line btn-sm" type="button">Presentear</button>`;
+          card.querySelector('button').onclick = async () => {
+            let ok = true; try { await navigator.clipboard.writeText(chave); } catch { ok = false; }
+            const av = $('sugAviso'); clearTimeout(tAviso);
+            av.innerHTML = ok
+              ? `<b>Chave Pix copiada!</b> No app do banco, cole a chave e escreva <b>"${esc(g.nome)}"</b> na mensagem, para a Sarah saber o presente 🤍`
+              : `Copie a chave Pix abaixo e escreva <b>"${esc(g.nome)}"</b> na mensagem 🤍`;
+            av.classList.add('on'); tAviso = setTimeout(() => av.classList.remove('on'), 9000);
+          };
+          box.append(card);
+        });
+      }
+    })();
+
+    // RSVP
+    const zap = String(CONFIG.whatsapp || '').replace(/\D/g, '');
+    const zapFull = zap && zap.length <= 11 ? '55' + zap : zap;   // acrescenta o 55 se faltar
+    const msgZap = (t) => `https://wa.me/${zapFull}?text=${encodeURIComponent(t)}`;
+    if (CONFIG.confirmarAte) { const [, pm, pd] = CONFIG.confirmarAte.split('-'); $('f-prazo').textContent = `Confirme até ${Number(pd)} de ${meses[Number(pm) - 1]}`; }
+    if (!CONFIG.planilha && !CONFIG.demo) {
+      // sem planilha: confirmação direto no WhatsApp
+      if (zap) { $('btnRsvp').hidden = false; $('btnRsvp').href = msgZap(CONFIG.mensagemRsvp.replace('{evento}', eventoDa)); }
+    } else (function(){
+      const CHAVE = 'convite-' + primeiroNome.toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, '') + '-' + CONFIG.data + '-rsvp';
+      const ler = () => { try { return JSON.parse(localStorage.getItem(CHAVE) || 'null'); } catch (e) { return null; } };
+      const gravar = (d) => { try { localStorage.setItem(CHAVE, JSON.stringify(d)); } catch (e) {} };
+      const salvo = ler();
+      const idConvidado = (salvo && salvo.id) || (Date.now().toString(36) + Math.random().toString(36).slice(2, 8));
+      const guest = $('guest'), erro = $('erroRsvp');
+      let vai = null, qtd = 1;
+      $('formRsvp').hidden = false;
+
+      function escolher(v) {
+        vai = v;
+        document.querySelectorAll('.opc').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.vai === v)));
+        $('blocoQtd').hidden = v !== 'sim'; erro.textContent = '';
+      }
+      document.querySelectorAll('.opc').forEach((b) => b.addEventListener('click', () => escolher(b.dataset.vai)));
+      let limite = 1;
+      const poeQtd = (n) => {
+        qtd = Math.max(1, Math.min(limite, n)); $('qtd').textContent = qtd;
+        $('menos').disabled = qtd <= 1; $('mais').disabled = qtd >= limite;
+      };
+      $('menos').addEventListener('click', () => poeQtd(qtd - 1));
+      $('mais').addEventListener('click', () => poeQtd(qtd + 1));
+      // Ajusta o formulário ao limite deste link
+      function aplicarLimite(n) {
+        limite = n;
+        const tl = $('txtLimite'); tl.hidden = false;
+        if (n <= 1) {
+          tl.textContent = 'Convite individual';
+          $('txtQtd').hidden = true; $('stepper').hidden = true;
+        } else {
+          tl.textContent = `Este convite é para até ${n} pessoas`;
+          $('txtQtd').hidden = false; $('stepper').hidden = false;
+          $('txtQtd').textContent = 'Quantas vão, contando com você?';
+        }
+        poeQtd(qtd);
+      }
+      aplicarLimite(1);
+      lerLimite().then(aplicarLimite);
+
+      const textoWhats = (d) => {
+        const rec = d.recado ? `\nRecado: ${d.recado}` : '';
+        return d.vai === 'sim'
+          ? `Olá! Aqui é ${d.nome}. Confirmo presença na ${eventoDa} 🌸 Seremos ${d.pessoas} pessoa${d.pessoas > 1 ? 's' : ''}.${rec}`
+          : `Olá! Aqui é ${d.nome}. Infelizmente não poderei ir na ${eventoDa}. Desejo uma noite linda! 🌸${rec}`;
+      };
+
+      function mostrarObrigado(d) {
+        const pn = d.nome.split(' ')[0];
+        $('formRsvp').hidden = true; $('obrigado').hidden = false;
+        $('okTitulo').textContent = d.vai === 'sim' ? `Obrigada, ${pn}!` : `Que pena, ${pn}!`;
+        const [, m, dd] = CONFIG.data.split('-');
+        $('okTexto').textContent = d.vai === 'sim'
+          ? `Sua presença está confirmada${d.pessoas > 1 ? ` para ${d.pessoas} pessoas` : ''}. Esperamos você no dia ${dd}/${m} 🌸`
+          : 'Sua resposta foi registrada. Obrigada por avisar com carinho!';
+        $('btnPainelDemo').hidden = !CONFIG.demo;
+        const bw = $('btnAvisarWhats');
+        if (zap && !CONFIG.demo) { bw.href = msgZap(textoWhats(d)); bw.hidden = false; } else bw.hidden = true;
+      }
+      $('btnMudar').addEventListener('click', () => {
+        const d = ler();
+        $('obrigado').hidden = true; $('formRsvp').hidden = false;
+        if (d) { guest.value = d.nome; escolher(d.vai); poeQtd(d.pessoas || 1); $('recado').value = d.recado || ''; }
+        $('btnEnviar').textContent = 'Atualizar resposta';
+      });
+
+      $('formRsvp').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nome = guest.value.trim().replace(/\s+/g, ' ');
+        if (nome.length < 2) { erro.textContent = 'Escreva seu nome 😊'; guest.classList.remove('erro'); void guest.offsetWidth; guest.classList.add('erro'); guest.focus(); return; }
+        if (!vai) { erro.textContent = 'Escolha se você vai ou não 🌸'; return; }
+        const d = { id: idConvidado, nome, vai, pessoas: vai === 'sim' ? qtd : 0, recado: $('recado').value.trim().slice(0, 500) };
+        const btn = $('btnEnviar'), txt = btn.textContent;
+        if (CONFIG.demo) {
+          // demonstração: guarda no aparelho para aparecer no painel de exemplo
+          try {
+            const L = JSON.parse(localStorage.getItem('convidaeu-demo-lista') || '[]').filter((x) => x.id !== d.id);
+            L.push({ ...d, vai: d.vai === 'sim', data: new Date().toISOString() });
+            localStorage.setItem('convidaeu-demo-lista', JSON.stringify(L));
+          } catch (e) {}
+        } else {
+          btn.disabled = true; btn.textContent = 'Enviando…'; erro.textContent = '';
+          try {
+            const ctl = new AbortController(), tm = setTimeout(() => ctl.abort(), 15000);
+            // Envia pelo mesmo caminho que o painel usa para ler (GET) e LÊ a resposta do Google:
+            // se a planilha não gravar, o convidado vê o erro em vez de um "obrigado" falso.
+            const q = new URLSearchParams({ acao: 'confirmar', id: d.id, nome: d.nome, vai: d.vai, pessoas: String(d.pessoas), recado: d.recado, cod: codigo, t: String(Date.now()) });   // atenção: o Google reserva os nomes 'c' e 'sid' — não usar
+            const resp = await fetch(CONFIG.planilha + '?' + q.toString(), { signal: ctl.signal });
+            const json = await resp.json();
+            clearTimeout(tm);
+            if (!json || !json.ok) throw new Error((json && json.erro) || 'planilha');
+          } catch (err) {
+            btn.disabled = false; btn.textContent = txt;
+            erro.textContent = 'Não conseguimos enviar agora. Confira sua internet e tente de novo.'; return;
+          }
+          btn.disabled = false; btn.textContent = txt;
+        }
+        gravar(d); mostrarObrigado(d);
+      });
+      if (salvo && salvo.nome) mostrarObrigado(salvo);
+    })();
+
+    // Salvar na agenda: iPhone → Calendário da Apple (.ics) | Android/computador → Google Agenda
+    (function(){
+      const botoes = [$('btnAgenda'), $('btnAgendaStd')];
+      if (!inicio) { botoes.forEach(b => b.remove()); return; }
+      const [ano, mes, dia] = CONFIG.data.split('-');
+      const fmt = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      const l = CONFIG.local;
+      const local = [l.nome, l.detalhe && l.detalhe.replace(/ · /g, ', '), l.endereco, l.cidade].filter(Boolean).join(', ');
+      const titulo = `${CONFIG.evento.charAt(0).toUpperCase() + CONFIG.evento.slice(1)} da ${casal}`, detalhes = `Contamos com a sua presença!\n\nConvite: ${linkConvite}`;
+      let datas, icsIni, icsFim, alarme;
+      if (horaPrincipal) {
+        const fim = new Date(inicio.getTime() + CONFIG.duracaoHoras * 36e5);
+        datas = `${fmt(inicio)}/${fmt(fim)}`; icsIni = `DTSTART:${fmt(inicio)}`; icsFim = `DTEND:${fmt(fim)}`; alarme = '-P1D';
+      } else {
+        const prox = new Date(`${CONFIG.data}T12:00:00Z`); prox.setUTCDate(prox.getUTCDate() + 1);
+        const d2 = prox.toISOString().slice(0,10).replace(/-/g,'');
+        datas = `${ano}${mes}${dia}/${d2}`; icsIni = `DTSTART;VALUE=DATE:${ano}${mes}${dia}`; icsFim = `DTEND;VALUE=DATE:${d2}`; alarme = '-PT15H';
+      }
+      const e = (t) => t.replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+      const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Convida&u//Convite//PT','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',
+        `UID:${CONFIG.data}-${primeiroNome.toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, '')}@convidaeu.com.br`, `DTSTAMP:${fmt(new Date())}`, icsIni, icsFim,
+        `SUMMARY:${e(titulo)}`, `LOCATION:${e(local)}`, `DESCRIPTION:${e(detalhes)}`, `URL:${linkConvite}`,
+        // lembrete no dia em que o convite oficial é liberado (só se ainda não chegou)
+        ...(libera && libera > new Date() ? ['BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${e('O convite oficial da ' + eventoDa + ' chegou! Abra: ' + linkConvite)}`,
+          `TRIGGER;VALUE=DATE-TIME:${fmt(new Date(libera.getTime() + 10 * 36e5))}`,'END:VALARM'] : []),
+        'BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${e('Amanhã é a ' + eventoDa + '! Convite: ' + linkConvite)}`,`TRIGGER:${alarme}`,'END:VALARM',
+        'END:VEVENT','END:VCALENDAR'].join('\r\n');
+      const ehIPhone = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      botoes.forEach((btn) => {
+        if (ehIPhone) {
+          if (btn.id === 'btnAgenda') $('agendaTxt').textContent = 'Salvar no calendário';
+          btn.removeAttribute('target');
+          btn.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+          btn.addEventListener('click', ev => { ev.preventDefault(); window.location.href = btn.href; });
+        } else {
+          btn.href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({ action:'TEMPLATE', text:titulo, dates:datas, location:local, details:detalhes });
+        }
+      });
+    })();
+
+    // Pétalas
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const cores = ['#f7c6d4','#e8a0b6','#d97a9a','#f2b6c8','#e9c98a','#ffe0ea','#c75a7e'];
+      const box = $('petals'), n = innerWidth < 640 ? 8 : 12;
+      for (let i = 0; i < n; i++) {
+        const p = document.createElement('span'), s = 8 + Math.random() * 9;
+        p.className = 'petal';
+        p.style.width = s + 'px'; p.style.height = s * 1.3 + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = `linear-gradient(135deg, ${cores[i % cores.length]}, ${cores[(i + 3) % cores.length]})`;
+        p.style.animationDuration = (12 + Math.random() * 10) + 's';
+        p.style.animationDelay = (-Math.random() * 18) + 's';
+        p.style.setProperty('--sway', (Math.random() * 120 - 60) + 'px');
+        p.style.setProperty('--spin', (360 + Math.random() * 540) * (Math.random() < .5 ? -1 : 1) + 'deg');
+        box.appendChild(p);
+      }
+    })();
+
+    // Música: começa quando o convidado toca no envelope (o celular só deixa tocar som depois de um toque)
+    const audio = $('audio'), btnMusica = $('btnMusica');
+    const marcaMusica = (tocando) => { btnMusica.classList.toggle('off', !tocando); btnMusica.setAttribute('aria-label', tocando ? 'Pausar música' : 'Tocar música'); };
+    function tocarMusica() {
+      if (!CONFIG.musica) return;
+      if (!audio.src) { audio.src = CONFIG.musica; audio.volume = .6; }
+      btnMusica.hidden = false;
+      const p = audio.play(); if (p && p.then) p.then(() => marcaMusica(true)).catch(() => marcaMusica(false));
+    }
+    audio.addEventListener('error', () => { btnMusica.hidden = true; });   // sem o arquivo da música: some o botão
+    btnMusica.addEventListener('click', () => { if (audio.paused) tocarMusica(); else { audio.pause(); marcaMusica(false); } });
+    let pausouPorFora = false;
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && !audio.paused) { audio.pause(); pausouPorFora = true; }
+      else if (!document.hidden && pausouPorFora) { pausouPorFora = false; tocarMusica(); }
+    });
+
+    // Vídeo do pré-wedding (pausa a música enquanto toca)
+    if (CONFIG.video) {
+      const s = $('soon'); if (s) s.remove();
+      const v = $('video'); v.src = CONFIG.video; if (CONFIG.posterVideo) v.poster = CONFIG.posterVideo;
+      $('videoBox').hidden = false;
+      let musicaAntes = false;
+      v.addEventListener('play', () => { musicaAntes = !audio.paused; if (musicaAntes) { audio.pause(); marcaMusica(false); } });
+      v.addEventListener('pause', () => { if (musicaAntes) { musicaAntes = false; tocarMusica(); } });
+    }
+
+    // Envelope: selo some → aba vira → carta sobe → convite aparece (sem trocar de página)
+    $('c-selo').textContent = CONFIG.nome.charAt(0);
+    if (CONFIG.data) { const [a, m, d] = CONFIG.data.split('-'); $('c-carta-data').textContent = `${d} · ${m} · ${a}`; }
+    (function(){
+      if (modoStd) { $('capa').remove(); return; }
+      let aberto = false;
+      const vibra = (n) => { try { if (navigator.vibrate) navigator.vibrate(n); } catch (e) {} };
+      const abrir = () => {
+        document.body.classList.add('opened');
+        window.scrollTo(0, 0);
+        setTimeout(() => { document.body.classList.remove('locked'); $('capa') && $('capa').remove(); }, 1200);
+      };
+      $('env').addEventListener('click', () => {
+        if (aberto) return; aberto = true; vibra(15); tocarMusica();
+        $('env').classList.add('abrindo'); $('capa').classList.add('abrindo');
+        setTimeout(abrir, 2400);   // selo some → aba abre → carta sobe → convite aparece
+      });
+      // link com #convite pula o envelope — útil para testar
+      if (location.hash === '#convite' || location.search.includes('abrir')) { document.body.classList.add('opened'); document.body.classList.remove('locked'); $('capa').remove(); }
+    })();
+
+    // Demonstração: alternar save the date / convite + botão da Convida&u
+    if (CONFIG.demo) {
+      $('demoBar').hidden = false;
+      (modoStd ? $('dbStd') : $('dbConv')).classList.add('on');
+      $('demoCta').hidden = false;
+      $('demoCta').href = 'https://wa.me/5521976184539?text=' + encodeURIComponent('Olá! Testei o modelo de convite com save the date + painel de confirmação no site da Convida&u e quero um assim 🌸');
+      document.querySelectorAll('.nav-btns').forEach(e => e.remove());
+    }
+
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
