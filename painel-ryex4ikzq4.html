@@ -14,17 +14,17 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#fbe3ea" />
+  <meta name="theme-color" content="#f6dccf" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Mrs+Saint+Delafield&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Painel no visual do convite da Sarah (rosé) */
     :root{
-      --cream:#fff6f8; --paper:#fffdfd; --ink:#5c2a3c; --suave:rgba(92,42,60,.7); --line:#f2c6d4;
-      --rosa:#9c3a5e; --terra:#9c3a5e;
-      --sunset:linear-gradient(135deg,#d97a9a 0%,#b84d70 50%,#8f3253 100%);
-      --verde:#2f7d55; --verde-bg:#e3f4ea; --cinza:#8a6b74; --cinza-bg:#f6e8ed;
+      --cream:#fdf5f0; --paper:#fffbf8; --ink:#5a3b2e; --suave:rgba(90,59,46,.72); --line:#efd6c9;
+      --rosa:#a3742f; --terra:#a3742f;
+      --sunset:linear-gradient(100deg,#c9a04a 0%,#a8772a 50%,#c9a04a 100%);
+      --verde:#2f7d55; --verde-bg:#e3f4ea; --cinza:#8c6b5d; --cinza-bg:#f6e6dd;
       --serif:'Bodoni Moda','Didot',Georgia,serif; --sig:'Mrs Saint Delafield',cursive; --sans:'Montserrat',system-ui,sans-serif;
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -33,21 +33,21 @@
     body{font-family:var(--sans);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;background:var(--cream)}
 
     /* topo: rosa claro, igual à capa do convite */
-    .topo{position:relative;overflow:hidden;text-align:center;color:#7d2a49;padding:calc(34px + env(safe-area-inset-top)) 18px 44px;
-      background:radial-gradient(ellipse at 50% 30%,#fffafb 0%,#fde9ef 45%,#f6c9d6 100%)}
-    .kicker{font-weight:600;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#9c3a5e}
+    .topo{position:relative;overflow:hidden;text-align:center;color:#8a6326;padding:calc(34px + env(safe-area-inset-top)) 18px 44px;
+      background:radial-gradient(ellipse at 50% 30%,#fffaf6 0%,#fbeee6 45%,#efc9b8 100%)}
+    .kicker{font-weight:600;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#a3742f}
     h1{margin-top:6px;font-family:var(--sig);font-weight:400;font-size:clamp(3rem,15vw,4.2rem);line-height:1.15;padding:0 .2em;
-      background:linear-gradient(115deg,#8f3253,#d27996 30%,#9c3a5e 55%,#c86a8a 80%,#842c4c);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .data{display:inline-block;margin-top:6px;padding:7px 16px;border-top:1px solid rgba(156,58,94,.35);border-bottom:1px solid rgba(156,58,94,.35);
+      background:linear-gradient(100deg,#9a6b22 0%,#d4ad62 45%,#a8772a 75%,#c9a04a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .data{display:inline-block;margin-top:6px;padding:7px 16px;border-top:1px solid rgba(163,116,47,.35);border-bottom:1px solid rgba(163,116,47,.35);
       font-family:var(--serif);font-variant-numeric:lining-nums;font-size:12px;letter-spacing:.3em}
 
     .wrap{max-width:720px;margin:0 auto;padding:0 18px calc(40px + env(safe-area-inset-bottom))}
 
     .totais{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-18px;position:relative}
-    .tot{padding:18px 6px 16px;border-radius:20px;background:var(--paper);border:1px solid var(--line);text-align:center;box-shadow:0 12px 28px rgba(156,58,94,.12)}
+    .tot{padding:18px 6px 16px;border-radius:20px;background:var(--paper);border:1px solid var(--line);text-align:center;box-shadow:0 12px 28px rgba(150,90,60,.12)}
     .tot b{display:block;font-family:var(--serif);font-weight:400;font-variant-numeric:lining-nums;font-size:2.3rem;line-height:1;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
     .tot span{display:block;margin-top:8px;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
-    .tot.destaque{background:var(--sunset);border-color:transparent;box-shadow:0 12px 28px rgba(156,58,94,.3)}
+    .tot.destaque{background:var(--sunset);border-color:transparent;box-shadow:0 12px 28px rgba(150,90,60,.3)}
     .tot.destaque b,.tot.destaque span{color:#fff}
 
     .barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
@@ -66,7 +66,7 @@
     @keyframes gira{to{transform:rotate(360deg)}}
 
     .lista{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:10px}
-    .item{padding:16px 16px 14px;border-radius:18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 6px 18px rgba(156,58,94,.06)}
+    .item{padding:16px 16px 14px;border-radius:18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 6px 18px rgba(150,90,60,.06)}
     .linha1{display:flex;align-items:center;gap:10px}
     .nome{flex:1;font-weight:600;font-size:15px;color:var(--ink);word-break:break-word}
     .selo{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
@@ -74,7 +74,7 @@
     .selo.nao{background:var(--cinza-bg);color:var(--cinza)}
     .linha2{margin-top:6px;display:flex;gap:14px;font-size:12.5px;color:var(--suave)}
     .linha2 b{color:var(--terra)}
-    .recado{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fde9ef;font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.5;color:var(--ink)}
+    .recado{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fbeae1;font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.5;color:var(--ink)}
 
     .vazio,.erro,.carregando{margin-top:30px;text-align:center;font-size:14px;color:var(--suave);line-height:1.6}
     .erro{color:#b3263f}
@@ -84,13 +84,14 @@
     .login form{margin-top:22px;display:flex;flex-direction:column;gap:12px}
     .login input{padding:14px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font:400 16px var(--sans);text-align:center;outline:none}
     .login button{padding:16px;border-radius:999px;border:0;cursor:pointer;font:600 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;
-      background:var(--sunset);box-shadow:0 12px 26px rgba(156,58,94,.3)}
+      background:var(--sunset);box-shadow:0 12px 26px rgba(150,90,60,.3)}
     footer{margin-top:34px;text-align:center;font-size:11px;color:var(--suave)}
     footer a{color:var(--ink);font-weight:600;text-decoration:none}
   </style>
 </head>
 <body>
   <header class="topo">
+    <img src="coroa.png" alt="" aria-hidden="true" style="display:block;width:96px;margin:0 auto 8px;filter:drop-shadow(0 4px 8px rgba(150,90,40,.25))">
     <p class="kicker">Confirmações · 15 anos</p>
     <h1 id="h-nome"></h1>
     <p class="data" id="h-data"></p>

@@ -15,9 +15,8 @@
  *
  * Painel da família: painel-ryex4ikzq4.html (a senha já vai dentro do painel; é a CHAVE_PAINEL abaixo).
  *
- * LIMITE POR LINK: cada link do convite termina em ?c=CÓDIGO. O convite repassa esse código para cá como 'cod'
- * (nunca 'c' ou 'sid': são nomes reservados do Google). A planilha só aceita até o limite do código.
- * Link sem código (ou com código errado) = 1 pessoa.
+ * LIMITE: um link só para todos; cada confirmação aceita até MAX_PESSOAS (o mesmo maxPessoas do index.html).
+ * (O limite por link ?c=CÓDIGO, como no casamento, fica desligado: CODIGOS vazio.)
  *
  * Se você mudar este código depois: Implantar → Gerenciar implantações → lápis → Versão: Nova versão.
  * (Use sempre "Gerenciar implantações": assim o link /exec continua o mesmo e não precisa mexer no convite.)
@@ -28,14 +27,10 @@ const ABA = 'Confirmações';
 const CHAVE_PAINEL = 'sa15-dg0xhxjce';    // senha do painel da família — use uma diferente para cada cliente
 const CABECALHO = ['Data/hora', 'Nome', 'Resposta', 'Pessoas', 'Recado', 'ID', 'Convite'];
 
-// Código do link → máximo de pessoas (o mesmo convite, 5 links)
-const CODIGOS = {
-  '8m4uz2': 1,
-  '6sd2yv': 2,
-  'tq69s7': 3,
-  'hnw67j': 4,
-  'oou3k8': 5
-};
+const MAX_PESSOAS = 10;                   // máximo por confirmação (link sem código)
+
+// Limite por link (?c=CÓDIGO → máximo de pessoas) — desligado neste convite
+const CODIGOS = {};
 
 /** Rode uma vez: cria a aba de confirmações e a aba de resumo com os totais. */
 function configurar() {
@@ -93,7 +88,7 @@ function registrar_(p) {
 
     const vai = p.vai === 'sim';
     // o código do link chega como 'cod' (o Google reserva 'c' e 'sid' — com eles o pedido nem chega aqui)
-    const limite = CODIGOS[String(p.cod || '').toLowerCase()] || 1;   // confere o limite aqui, não só no convite
+    const limite = CODIGOS[String(p.cod || '').toLowerCase()] || MAX_PESSOAS;   // confere o limite aqui, não só no convite
     const pessoas = vai ? Math.min(limite, Math.max(1, parseInt(p.pessoas, 10) || 1)) : 0;
     const id = limpa(p.id, 40) || Utilities.getUuid();
     const linha = [new Date(), nome, vai ? 'Vai ✅' : 'Não vai ❌', pessoas, limpa(p.recado, 500), id, 'até ' + limite];
@@ -162,6 +157,6 @@ function resposta_(o) {
 
 /** Teste pelo editor: escolha "testarConfirmacao" e clique em Executar. Grava uma linha "Teste editor" na planilha. */
 function testarConfirmacao() {
-  const r = registrar_({ nome: 'Teste editor', vai: 'sim', pessoas: '9', cod: 'tq69s7', id: 'teste-editor' });
-  Logger.log(r.getContent() + '  (pediu 9 pessoas num link de até 3: tem que gravar 3)');
+  const r = registrar_({ nome: 'Teste editor', vai: 'sim', pessoas: '15', id: 'teste-editor' });
+  Logger.log(r.getContent() + '  (pediu 15 pessoas: tem que gravar ' + MAX_PESSOAS + ')');
 }

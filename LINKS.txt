@@ -1,24 +1,8 @@
 15 ANOS SARAH ALVES — 09/01/2027, 19h — Chácara da Selma (Nardino)
 =====================================================================
 
-LINKS PARA OS CONVIDADOS (mande cada família no link do tamanho dela)
-
-Até 1 pessoa (só o convidado):
-https://sarah.convidaeu.com.br/?c=8m4uz2
-
-Até 2 pessoas (convidado + 1):
-https://sarah.convidaeu.com.br/?c=6sd2yv
-
-Até 3 pessoas (convidado + 2):
-https://sarah.convidaeu.com.br/?c=tq69s7
-
-Até 4 pessoas (convidado + 3):
-https://sarah.convidaeu.com.br/?c=hnw67j
-
-Até 5 pessoas (convidado + 4):
-https://sarah.convidaeu.com.br/?c=oou3k8
-
-O link sem código no final vale para 1 pessoa.
+LINK DO CONVITE (o mesmo para todos os convidados — cada um confirma até 10 pessoas)
+https://sarah.convidaeu.com.br/
 
 
 PAINEL DA FAMÍLIA (só para a família da Sarah — a senha já vai dentro dele)
@@ -29,21 +13,27 @@ Senha (caso alguém precise digitar): sa15-dg0xhxjce
 ARQUIVOS PARA SUBIR NA PASTA DO SUBDOMÍNIO
   index.html
   painel-ryex4ikzq4.html
+  musica.mp3
   og.jpg                 (prévia do link no WhatsApp)
+  coroa.png              (coroa da abertura e do painel)
+  selo.png               (selo dourado do envelope)
   fotos/foto1.jpg
   fotos/foto2.jpg
   confirmacoes.gs        (NÃO sobe no site: vai no Apps Script do Google)
 
 
+ATUALIZAR O APPS SCRIPT (mantendo o mesmo link /exec)
+  1. Abrir o projeto do Apps Script, apagar o código antigo e colar o confirmacoes.gs novo. Salvar.
+  2. Implantar → Gerenciar implantações → lápis → Versão: Nova versão → Implantar.
+     (NÃO usar "Nova implantação": isso cria outro link /exec e o convite para de gravar.)
+
+
 ANTES DE MANDAR PARA OS CONVIDADOS
-  1. Apps Script: colar confirmacoes.gs → rodar "configurar" → Implantar como App da Web
-     (Executar como: Eu | Quem pode acessar: Qualquer pessoa).
-  2. Colar o link /exec em CONFIG.planilha no index.html E no painel.
-  3. Pegar com a cliente: pin do Maps da chácara (CONFIG.local.mapa) ou endereço,
-     traje, prazo de confirmação, programação (valsa, parabéns…), corte, Pix/lista, música.
+  1. Confirmar uma resposta de teste pelo convite e ver se aparece no painel. Depois apagar a linha na planilha.
+  2. Ainda falta da cliente: pin do Maps da chácara (CONFIG.local.mapa) ou endereço,
+     traje, prazo de confirmação, programação (valsa, parabéns…), corte, Pix/lista.
      O que ficar vazio simplesmente some do convite.
-  4. Confirmar uma resposta de teste e ver se aparece no painel.
 
 
 PARA VOCÊ TESTAR (não mandar para convidados)
-  Pular o envelope:  https://sarah.convidaeu.com.br/?c=oou3k8&abrir
+  Pular o envelope:  https://sarah.convidaeu.com.br/?abrir
