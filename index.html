@@ -767,7 +767,7 @@
 
       // QUANTAS PESSOAS POR CONFIRMAÇÃO: um link só para todos, cada um escolhe de 1 até maxPessoas.
       // A planilha confere de novo antes de gravar (MAX_PESSOAS no confirmacoes.gs — use o mesmo número).
-      maxPessoas: 10,
+      maxPessoas: 1,            // 1 = convite individual (sem acompanhantes, sem contador)
 
       // Limite por link (?c=CÓDIGO), como no casamento — desligado neste convite. Vazio = não usa.
       limites: {}
@@ -1037,7 +1037,7 @@
       const textoWhats = (d) => {
         const rec = d.recado ? `\nRecado: ${d.recado}` : '';
         return d.vai === 'sim'
-          ? `Olá! Aqui é ${d.nome}. Confirmo presença na ${eventoDa} 🌸 Seremos ${d.pessoas} pessoa${d.pessoas > 1 ? 's' : ''}.${rec}`
+          ? `Olá! Aqui é ${d.nome}. Confirmo presença na ${eventoDa} 🌸${d.pessoas > 1 ? ` Seremos ${d.pessoas} pessoas.` : ''}${rec}`
           : `Olá! Aqui é ${d.nome}. Infelizmente não poderei ir na ${eventoDa}. Desejo uma noite linda! 🌸${rec}`;
       };
 
